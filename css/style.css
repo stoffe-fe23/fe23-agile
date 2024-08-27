@@ -116,6 +116,11 @@ body > header nav .logo {
     margin-left: 0.5rem;
 }
 
+body > header nav .logo a {
+    color: white;
+    text-decoration: none;
+}
+
 body > header nav .main-menu {
     display: flex;
     justify-content: flex-end;
