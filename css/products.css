@@ -1,0 +1,59 @@
+:root {
+    --productcard-background-color: rgba(90, 90, 90, 0.9);
+    --productcard-text-color: rgba(255, 255, 255, 0.9);
+    --productlink-background-color: rgba(0, 0, 0, 1.0);
+    --productlink-background-hover-color: rgba(255, 0, 0, 0.9);
+    --productlink-text-color: rgba(255, 255, 255, 1.0);
+    --productlink-text-hover-color: rgba(255, 255, 255, 1.0);
+
+}
+
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.product-list article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    background-color: var(--productcard-background-color);
+    color: var(--productcard-text-color);
+}
+
+.product-list article h3 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.product-list article > div {
+    flex-grow: 1;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.product-list article > img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.product-link {
+    background-color: var(--productlink-background-color);
+    color: var(--productcard-text-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-link:hover {
+    background-color: var(--productlink-background-hover-color);
+    color: var(--productlink-text-hover-color);
+}
