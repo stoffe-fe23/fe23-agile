@@ -1,6 +1,7 @@
 :root {
     --productactions-background-color: rgba(90, 90, 90, 0.5);
     --productactions-text-color: rgba(255, 255, 255, 0.9);
+    --productactions-heading-color: lightblue;
     --product-buy-background-color: green;
     --product-buy-text-color: white;
     --product-buy-background-hover-color: lightgreen;
@@ -20,7 +21,7 @@
 }
 
 .product-image {
-    grid-area: "product-image";
+    grid-area: product-image;
     width: 300px;
 }
 
@@ -31,7 +32,7 @@
 }
 
 .product-desc {
-    grid-area: "product-desc";
+    grid-area: product-desc;
 }
 
 .product-desc p:first-of-type {
@@ -39,10 +40,10 @@
 }
 
 .product-actions {
-    grid-area: "product-actions";
+    grid-area: product-actions;
     background-color: var(--productactions-background-color);
     color: var(--productactions-text-color);
-    padding: 1rem;
+    padding: 1rem 2rem 1.5rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -53,6 +54,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin: 1rem 0 0 0;
+    color: var(--productactions-heading-color);
 }
 
 .product-price {
@@ -81,7 +83,7 @@
 
 
 .product-rating .rated {
-    color: darkblue;
+    color: gold;
 }
 
 
@@ -96,6 +98,6 @@
         display: grid;
         grid-template-areas: "product-image product-desc product-actions";
         grid-template-columns: auto 3fr 1fr;
-        gap: 2rem;
+        gap: 4rem;
     }
 }
