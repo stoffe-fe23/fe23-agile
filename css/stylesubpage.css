@@ -1,0 +1,324 @@
+/*
+    General stylesheet for site layout.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --font-header: "Roboto", Helvetica, Arial, sans-serif;
+    --font-content: system-ui, Helvetica, Arial, sans-serif;
+    --font-menu: "Roboto Condensed", Helvetica, Arial, sans-serif;
+    --page-background-color: rgba(0, 0, 0, 1.0);
+    --page-text-color: rgba(255, 255, 255, 0.85);
+    --nav-background-color: rgba(44, 63, 92, 0.5);
+    --nav-background-solid-color: rgba(44, 63, 92, 0.9);
+    --nav-text-color: rgba(255, 255, 255, 0.90);
+    --nav-text-hover-color: rgba(255, 0, 0, 0.90);
+    --footer-background-color: rgba(74, 78, 90, 0.9);
+    --footer-text-color: rgba(255, 255, 255, 0.9);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-header);
+    margin: 0;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.5rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+h5 {
+    font-size: 2.5rem;
+}
+
+h6 {
+    font-size: 2rem;
+}
+
+
+/* BASE STRUCTURE */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: var(--page-background-color);
+    color: var(--page-text-color);
+    font-family: var(--font-content);
+}
+
+body > header {
+    background-color: transparent;
+}
+
+body > main {
+    flex-grow: 1;
+    padding: 3rem;
+}
+
+body.subpage > main {
+    margin-top: 6rem;
+}
+
+
+
+body > footer {
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color);
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.footer-links {
+    padding: 1rem;
+}
+
+.footer-links a {
+    color: var(--nav-text-hover-color);
+    color: var(--nav-text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: var(--nav-text-hover-color);
+}
+
+/* HEADER */
+
+body > header nav {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    justify-items: center;
+    color: var(--nav-text-color);
+    background-color: transparent;
+    width: 100%;
+}
+
+body > header nav .logo {
+    padding: 1rem 2rem;
+    color: white;
+    text-align: center;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+body > header nav .logo a {
+    color: white;
+    text-decoration: none;
+}
+
+body > header nav .main-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    background-color: var(--nav-background-color);
+}
+
+body.subpage > header nav .main-menu {
+    background-color: var(--nav-background-solid-color);
+}
+
+body > header nav ul {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 2rem;
+    font-family: var(--font-menu);
+}
+
+body > header nav ul li {
+    list-style-type: none;
+    text-transform: uppercase;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
+
+body > header nav ul li a {
+    color: var(--nav-text-color);
+    text-decoration: none;
+}
+
+body > header nav ul li a:hover {
+    color: var(--nav-text-hover-color);
+}
+
+body > header .hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-image: url('../images/hero-placeholder.jpg');
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+}
+
+body > header .hero .hero-text {
+    flex-grow: 1;
+    font-size: clamp(4rem, 15vw, 9rem);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--page-text-color);
+    text-decoration: none;
+}
+
+
+
+/* NAV MENU BURGER BUTTON */
+
+#nav-toggle {
+    position: absolute;
+    left: -100px !important;
+}
+
+#nav-button {
+    display: inline-flex;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    color: var(--nav-text-color);
+    background-color: transparent;
+    padding: 3px 5px 3px 5px;
+    cursor: pointer;
+}
+
+#nav-button span {
+    position: relative;
+    font-size: 1pt;
+    color: transparent;
+}
+
+#nav-button span,
+#nav-button span::before,
+#nav-button span::after {
+    display: block;
+    background: white;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#nav-button span::before {
+    position: absolute;
+    content: "";
+    bottom: 10px;
+}
+
+#nav-button span::after {
+    position: absolute;
+    content: "";
+    top: 10px;
+}
+
+#nav-button:focus span,
+#nav-button:focus span::before,
+#nav-button:focus span::after,
+#nav-button:hover span,
+#nav-button:hover span::before,
+#nav-button:hover span::after {
+    background-color: var(--nav-text-hover-color);
+}
+
+#nav-toggle:checked ~ ul {
+    display: flex;
+    min-width: 250px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#nav-toggle:checked ~ #nav-button span {
+    height: 0px;
+}
+
+#nav-toggle:checked ~ #nav-button span::before {
+    transform: rotate(45deg);
+    top: -2px;
+}
+
+#nav-toggle:checked ~ #nav-button span::after {
+    transform: rotate(-45deg);
+    top: -2px;
+}
+
+
+/* MAIN CONTENT SECTION */
+
+
+main section {
+    background-color: rgba(255, 255, 255 0.2);
+}
+
+main section h2 {
+    text-align: center;
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-float-left {
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+
+@media all and (min-width: 680px) {
+
+    body > header nav ul {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    body > header nav ul li {
+        text-align: left;
+    }
+
+    #nav-button,
+    #nav-toggle {
+        display: none;
+    }
+}
