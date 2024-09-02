@@ -75,6 +75,37 @@ export async function addCategory(categoryName, categoryImage, categoryGroup) {
     });
 }
 
+// Add product to the admin-added products table in IndexedDB
+// // name, date, description, price, category, image
+export async function addProduct(productName, productDescription, productPrice, productCategory, productImage) {
+    await initializeDB();
+    return new Promise((resolve, reject) => {
+        if (db) {
+            const newProduct = {
+                name: productName,
+                date: Date.now(),
+                description: productDescription,
+                price: productPrice,
+                category: productCategory,
+                image: JSON.stringify([productImage])
+            };
+            const dbTrans = db.transaction(["products"], "readwrite");
+
+            dbTrans.addEventListener("complete", (event) => {
+                console.log("Database transaction complete.");
+                resolve();
+            });
+
+            dbTrans.addEventListener("error", (event) => {
+                console.log("DB transaction error!", event);
+                reject(event);
+            });
+
+            dbTrans.objectStore("products").add(newProduct);
+        }
+    });
+}
+
 // Get list of admin-added categories from IndexedDB
 export async function getCategories() {
     await initializeDB();
@@ -104,6 +135,9 @@ export async function getProducts() {
             const dbReq = dbStore.getAll();
 
             dbReq.addEventListener("success", (event) => {
+                event.target.result.forEach((product, idx, arr) => {
+                    arr[idx].image = JSON.parse(product.image);
+                });
                 console.log("Fetched product list...", event.target.result);
                 resolve(event.target.result);
             });

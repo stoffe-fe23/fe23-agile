@@ -3,14 +3,13 @@
 */
 import * as productdata from "./productdata.js";
 
-// Box to display added categories on the test page. 
+// Display products in product list element. 
 const productCardTemplate = document.querySelector("#product-card-template");
 if (productCardTemplate) {
-    console.log("LOADING TEST DATA...");
     showProductList(".product-list");
 }
 
-// Fetch list of categories and display them on the page. 
+// Fetch list of products in the specified category and display them on the page. 
 async function showProductList(targetSelector) {
     const categoryFilter = Number(new URLSearchParams(window.location.search).get("category"));
     const categories = await productdata.getCategories();
@@ -19,7 +18,6 @@ async function showProductList(targetSelector) {
     const filterBy = (!isNaN(categoryFilter) && (categoryFilter >= 0) && (categoryFilter < categories.length)) ? categoryFilter : null;
 
     const products = await productdata.getProducts(filterBy);
-    console.log("PRODUCT LIST", products);
 
     if (template) {
         if (products.length > 0) {
@@ -41,6 +39,7 @@ async function showProductList(targetSelector) {
         }
     }
 
+    // Update page title to show the name of the category whose products are displayed. 
     const listTitle = document.querySelector("main > section > h2");
     if (!isNaN(categoryFilter) && (categoryFilter >= 0) && (categoryFilter < categories.length)) {
         const displayedCategory = categories.find((category) => category.categoryid == categoryFilter);

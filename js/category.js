@@ -3,9 +3,9 @@
 */
 import * as productdata from "./productdata.js";
 
-// Box to display added categories on the test page. 
-const testResultBox = document.querySelector("#category-card-template");
-if (testResultBox) {
+// Display categories in category list element. 
+const categoryCardTemplate = document.querySelector("#category-card-template");
+if (categoryCardTemplate) {
     console.log("LOADING TEST DATA...");
     showCategoryList(".category-list");
 }
