@@ -147,3 +147,10 @@ export async function getProducts(filterCategory = null) {
     }
     return products;
 }
+
+
+// Get the product object matching the specified product ID.
+export async function getProduct(productId) {
+    const products = await getProducts();
+    return products.find((product) => product.productid == productId);
+}

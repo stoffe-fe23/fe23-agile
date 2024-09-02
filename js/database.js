@@ -150,7 +150,6 @@ export async function getProducts() {
     });
 }
 
-
 function timestampToDate(timestamp, isMilliSeconds = true, locale = 'sv-SE') {
     const dateObj = new Date(isMilliSeconds ? timestamp : timestamp * 1000);
     const formatLocale = (locale ?? navigator.language);
