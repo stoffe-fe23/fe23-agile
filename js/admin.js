@@ -22,6 +22,10 @@ if (newCategoryForm) {
         if (formImage) {
             fileReader.readAsDataURL(formImage);
         }
+
+        alert("Ny kategori skapad!");
+        event.target.reset();
+        document.querySelector("#category-preview").innerHTML = "";
     });
 }
 
