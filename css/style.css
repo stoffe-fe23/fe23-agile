@@ -339,6 +339,31 @@ a:hover{
     font-weight: bolder;
 }
 
+.new-card {
+        background-color: rgb(243, 243, 243);
+        color: black;
+        /*display: flex;
+        justify-content: space-between ;
+        width: 30px;*/
+}
+
+.new-section {
+    background-color: rgba(255, 255, 255 0.2);
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+}
+.new-header {
+    color: black;
+}
+
+.new-img{
+    width: fit-content;
+        height: auto;
+        opacity: 0.75;
+
+}
 
 
 @media all and (min-width: 680px) {
