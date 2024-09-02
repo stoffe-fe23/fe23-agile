@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/admin.css">
         <script src="js/admin.js" type="module"></script>
-        <title>Generell infosida</title>
+        <title>Admin kontrollpanel</title>
     </head>
     <body class="subpage">
         <!-- Page header with logo and nav menu -->
@@ -30,32 +30,58 @@
         </header>
         <!-- Main content section -->
         <main>
+            <!-- FORM: CREATE NEW CATEGORY -->
             <section>
                 <h2>Skapa kategori</h2>
                 <form id="create-category-form" method="POST">
                     <div id="category-preview"></div>
                     <div>
-                        <label for="create-category-group">Typ:</label>
-                        <select id="create-category-group" name="category-group">
+                        <label for="create-category-group">Typ</label>
+                        <select id="create-category-group" name="category-group" required>
                             <option value="clothes">Kläder</option>
                             <option value="skate">Skate</option>
                             <option value="misc">Blandat</option>
                         </select>
                     </div>
                     <div>
-                        <label for="create-category-name">Kategorinamn:</label>
-                        <input type="text" id="create-category-name" name="category-name" minlength="4" maxlength="20">
+                        <label for="create-category-name">Kategorinamn</label>
+                        <input type="text" id="create-category-name" name="category-name" minlength="4" maxlength="20" required>
                     </div>
                     <div>
-                        <label for="create-category-image">Kategoribild:</label>
-                        <input type="file" accept="image/*" id="create-category-image" name="category-image">
+                        <label for="create-category-image">Kategoribild</label>
+                        <input type="file" accept="image/*" id="create-category-image" name="category-image" required>
                     </div>
                     <button>Skapa</button>
                 </form>
             </section>
             <hr>
+            <!-- FORM: CREATE NEW PRODUCT -->
             <section>
                 <h2>Skapa produkt</h2>
+                <form id="create-product-form" method="POST">
+                    <div id="product-preview"></div>
+                    <div>
+                        <label for="create-product-name">Produktnamn</label>
+                        <input id="create-product-name" name="product-name" type="text" minlength="4" maxlength="50" required>
+                    </div>
+                    <div>
+                        <label for="create-product-price">Pris</label>
+                        <input id="create-product-price" name="product-price" type="number" min="0" value="0" required>
+                    </div>
+                    <div>
+                        <label for="create-product-desc">Produktbeskrivning</label>
+                        <textarea id="create-product-desc" name="product-desc" rows="5" cols="60"></textarea>
+                    </div>
+                    <div>
+                        <label for="create-product-image">Produktbild</label>
+                        <input type="file" accept="image/*" id="create-product-image" name="product-image" required>
+                    </div>
+                    <div>
+                        <label for="create-product-category">Kategori</label>
+                        <select id="create-product-category" name="product-category" required></select>
+                    </div>
+                    <button>Skapa</button>
+                </form>
             </section>
         </main>
         <!-- Page footer -->

@@ -3,9 +3,9 @@
 */
 import * as productdata from "./productdata.js";
 
-// Box to display added categories on the test page. 
-const testResultBox = document.querySelector("#category-card-template");
-if (testResultBox) {
+// Display categories in category list element. 
+const categoryCardTemplate = document.querySelector("#category-card-template");
+if (categoryCardTemplate) {
     console.log("LOADING TEST DATA...");
     showCategoryList(".category-list");
 }
@@ -27,6 +27,7 @@ async function showCategoryList(targetSelector) {
             const card = template.content.firstElementChild.cloneNode(true);
             const image = card.querySelector("img");
             const label = card.querySelector("span");
+            card.href = `productlist.html?category=${category.categoryid}`;
             image.src = category.image;
             label.innerText = category.name;
             outBox.appendChild(card);

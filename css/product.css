@@ -65,6 +65,10 @@
     text-align: right;
 }
 
+.product-price::after {
+    content: " kr";
+}
+
 .product-stock {
     text-align: right;
 }
