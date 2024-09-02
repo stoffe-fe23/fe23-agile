@@ -288,20 +288,41 @@ main section {
     background-color: rgba(255, 255, 255 0.2);
 }
 
-main section h2 {
+/* main section h2 {
     text-align: center;
 }
-
-main img {
-    max-width: 100%;
-    height: auto;
-}
-
 .image-float-left {
     float: left;
     margin-right: 2rem;
     margin-bottom: 2rem;
+} */
+
+main img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.8;
 }
+
+main a{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.category-card{
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: space-between ;
+}
+.text-info{
+    padding: 100px;
+    max-width: 40%;
+    text-align: center;
+}
+
+
 
 
 
