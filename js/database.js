@@ -83,7 +83,7 @@ export async function addProduct(productName, productDescription, productPrice, 
         if (db) {
             const newProduct = {
                 name: productName,
-                date: Date.now(),
+                date: timestampToDate(Date.now()),
                 description: productDescription,
                 price: productPrice,
                 category: productCategory,
@@ -148,4 +148,17 @@ export async function getProducts() {
             });
         }
     });
+}
+
+
+function timestampToDate(timestamp, isMilliSeconds = true, locale = 'sv-SE') {
+    const dateObj = new Date(isMilliSeconds ? timestamp : timestamp * 1000);
+    const formatLocale = (locale ?? navigator.language);
+    const formatOptions = {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric"
+    };
+
+    return new Intl.DateTimeFormat(formatLocale, formatOptions).format(dateObj);
 }
