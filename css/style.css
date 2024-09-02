@@ -1,3 +1,6 @@
+/*
+    General stylesheet for site layout.
+*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
@@ -83,11 +86,26 @@ body > footer {
     background-color: var(--footer-background-color);
     color: var(--footer-text-color);
     display: flex;
+    gap: 3rem;
     justify-content: center;
     align-items: center;
     padding: 2rem 3rem;
 }
 
+.footer-links {
+    padding: 1rem;
+}
+
+.footer-links a {
+    color: var(--nav-text-hover-color);
+    color: var(--nav-text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: var(--nav-text-hover-color);
+}
 
 /* HEADER */
 

@@ -1,3 +1,6 @@
+/*
+    CSS for the shopping cart page.
+*/
 :root {
     --product-card-background-color: rgba(120, 120, 120, 1.0);
     --product-card-text-color: rgba(255, 255, 255, 0.9);

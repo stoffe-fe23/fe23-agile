@@ -1,0 +1,16 @@
+/*
+    CSS for admin control panel page.
+*/
+#testresult {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#testresult article {
+    background-color: rgba(60, 60, 60, 1.0);
+}
+
+#testresult article h2 {
+    font-size: 2rem;
+}
