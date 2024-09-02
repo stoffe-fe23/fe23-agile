@@ -13,55 +13,60 @@ const groupList = [
 
 ////////// DEFAULT LIST OF PRODUCT CATEGORIES
 const categoryList = [
-    { name: "Jackor", image: "", group: "clothes" },
-    { name: "Hooodies", image: "", group: "clothes" },
-    { name: "T-shirts", image: "", group: "clothes" },
-    { name: "Brädor", image: "", group: "skate" },
-    { name: "Solglasögon", image: "", group: "misc" },
-    { name: "Prylar", image: "", group: "misc" }
+    { categoryid: 1, name: "Jackor", image: "", group: "clothes" },
+    { categoryid: 2, name: "Hooodies", image: "", group: "clothes" },
+    { categoryid: 3, name: "T-shirts", image: "", group: "clothes" },
+    { categoryid: 4, name: "Brädor", image: "", group: "skate" },
+    { categoryid: 5, name: "Solglasögon", image: "", group: "misc" },
+    { categoryid: 6, name: "Prylar", image: "", group: "misc" }
 ];
 
 ////////// DEFAULT PRODUCT LIST
 const productList = [
     {
-        category: "0",
+        productid: 1,
+        category: "1",
         name: "En jacka",
         date: "2024-09-02",
         price: "400",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: ""
+        image: []
     },
     {
-        category: "0",
+        productid: 2,
+        category: "1",
         name: "En annan jacka",
         date: "2024-08-01",
         price: "600",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: ""
+        image: []
     },
     {
-        category: "0",
+        productid: 3,
+        category: "1",
         name: "En tredje jacka",
         date: "2024-07-22",
         price: "550",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: ""
+        image: []
     },
     {
-        category: "3",
+        productid: 4,
+        category: "4",
         name: "En skateboard",
         date: "2024-09-02",
         price: "1000",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: ""
+        image: []
     },
     {
-        category: "3",
+        productid: 5,
+        category: "4",
         name: "En annan bräda",
         date: "2024-08-12",
         price: "1200",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: ""
+        image: []
     }
 ];
 
@@ -78,13 +83,32 @@ export function getGroups() {
 // Retrieve array of all product categories (both default and admin-added)
 export async function getCategories(filterGroup = null) {
     const newCategories = await database.getCategories();
+
+    // Get the next free ID to use for admin-added categories
+    let nextId = 0;
+    categoryList.forEach((category) => {
+        if (category.categoryid > nextId) {
+            nextId = category.categoryid;
+        }
+    });
+
+    // Assign IDs to admin-added categories
+    newCategories.forEach((category, idx, arr) => {
+        arr[idx].categoryid = ++nextId;
+    });
+
+    // Merge default and admin-added category lists
     const categories = [...categoryList, ...newCategories];
+
+    // Set default/placeholder image if a category lacks a button image
     categories.forEach((category, idx, arr) => {
         if (!category.image.length) {
             arr[idx].image = "./images/image-placeholder.jpg";
         }
     });
-    if (filterGroup) {
+
+    // Apply group filter if set. 
+    if (filterGroup !== null) {
         return categories.filter((category) => category.group == filterGroup);
     }
     return categories;
@@ -93,13 +117,32 @@ export async function getCategories(filterGroup = null) {
 // Retrieve array of all products (both default and admin-added). If filterCategory is set, only products belonging to that category is included.
 export async function getProducts(filterCategory = null) {
     const newProducts = await database.getProducts();
-    const products = [...productList, ...newProducts];
-    products.forEach((product, idx, arr) => {
-        if (!product.image.length) {
-            arr[idx].image = "./images/image-placeholder.jpg";
+
+    // Get the next free ID to use for admin-added products
+    let nextId = 0;
+    productList.forEach((product) => {
+        if (product.productid > nextId) {
+            nextId = product.productid;
         }
     });
-    if (filterCategory) {
+
+    // Assign IDs to admin-added products
+    newProducts.forEach((product, idx, arr) => {
+        arr[idx].productid = ++nextId;
+    });
+
+    // Merge default and admin-added product lists
+    const products = [...productList, ...newProducts];
+
+    // Set default/placeholder image if a product has no images.
+    products.forEach((product, idx, arr) => {
+        if (!product.image.length) {
+            arr[idx].image.push("./images/image-placeholder.jpg");
+        }
+    });
+
+    // Apply category filter if set
+    if (filterCategory !== null) {
         return products.filter((product) => product.category == filterCategory);
     }
     return products;

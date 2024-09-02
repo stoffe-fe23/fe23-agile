@@ -27,6 +27,7 @@ async function showCategoryList(targetSelector) {
             const card = template.content.firstElementChild.cloneNode(true);
             const image = card.querySelector("img");
             const label = card.querySelector("span");
+            card.href = `productlist.html?category=${category.categoryid}`;
             image.src = category.image;
             label.innerText = category.name;
             outBox.appendChild(card);

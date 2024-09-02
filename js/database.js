@@ -104,7 +104,7 @@ export async function getProducts() {
             const dbReq = dbStore.getAll();
 
             dbReq.addEventListener("success", (event) => {
-                console.log("Fetched product list...");
+                console.log("Fetched product list...", event.target.result);
                 resolve(event.target.result);
             });
 
