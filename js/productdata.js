@@ -81,7 +81,7 @@ export async function getCategories(filterGroup = null) {
     const categories = [...categoryList, ...newCategories];
     categories.forEach((category, idx, arr) => {
         if (!category.image.length) {
-            arr[idx].image = "../images/image-placeholder.jpg";
+            arr[idx].image = "./images/image-placeholder.jpg";
         }
     });
     if (filterGroup) {
@@ -96,7 +96,7 @@ export async function getProducts(filterCategory = null) {
     const products = [...productList, ...newProducts];
     products.forEach((product, idx, arr) => {
         if (!product.image.length) {
-            arr[idx].image = "../images/image-placeholder.jpg";
+            arr[idx].image = "./images/image-placeholder.jpg";
         }
     });
     if (filterCategory) {
