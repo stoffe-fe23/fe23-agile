@@ -30,7 +30,8 @@ const productList = [
         date: "2024-09-02",
         price: "400",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: [],
+        amount: 20
     },
     {
         productid: 2,
@@ -39,7 +40,8 @@ const productList = [
         date: "2024-08-01",
         price: "600",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: [],
+        amount: 25
     },
     {
         productid: 3,
@@ -48,7 +50,8 @@ const productList = [
         date: "2024-07-22",
         price: "550",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: [],
+        amount: 10
     },
     {
         productid: 4,
@@ -57,7 +60,8 @@ const productList = [
         date: "2024-09-02",
         price: "1000",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: [],
+        amount: 50
     },
     {
         productid: 5,
@@ -66,7 +70,8 @@ const productList = [
         date: "2024-08-12",
         price: "1200",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: [],
+        amount: 40
     }
 ];
 
