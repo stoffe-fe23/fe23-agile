@@ -28,7 +28,7 @@ const productList = [
         productid: 1,
         category: "1",
         name: "Jeans jacka",
-        date: "2024-09-02",
+        date: "2024-09-02 08:00:01",
         price: "400",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
         image: ["images/products/jacketjeans1.png", "images/products/jacketjeans2.png", "images/products/jacketjeans3.png"]
@@ -37,7 +37,7 @@ const productList = [
         productid: 2,
         category: "1",
         name: "Annan jacka",
-        date: "2024-08-01",
+        date: "2024-08-01 08:00:00",
         price: "600",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
         image: ["images/products/jacketmisc1.png", "images/products/jacketmisc2.png"]
@@ -46,7 +46,7 @@ const productList = [
         productid: 3,
         category: "1",
         name: "Läderjacka",
-        date: "2024-07-22",
+        date: "2024-07-22 08:00:00",
         price: "550",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
         image: ["images/products/jacketleather.png"]
@@ -55,7 +55,7 @@ const productList = [
         productid: 4,
         category: "4",
         name: "En skateboard",
-        date: "2024-09-02",
+        date: "2024-09-02 10:00:01",
         price: "1000",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
         image: ["images/products/skateboard1.png"]
@@ -64,7 +64,7 @@ const productList = [
         productid: 5,
         category: "4",
         name: "Muterad skateboard",
-        date: "2024-08-12",
+        date: "2024-08-12 09:00:00",
         price: "1200",
         description: "Om AI fått designa en skateboard hade den sett ut så här...",
         image: ["images/products/mutantboard.png", "images/products/mutantboard2.png"]

@@ -156,7 +156,10 @@ function timestampToDate(timestamp, isMilliSeconds = true, locale = 'sv-SE') {
     const formatOptions = {
         year: "numeric",
         month: "numeric",
-        day: "numeric"
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric"
     };
 
     return new Intl.DateTimeFormat(formatLocale, formatOptions).format(dateObj);
