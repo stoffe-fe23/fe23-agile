@@ -26,29 +26,29 @@ const productList = [
     {
         productid: 1,
         category: "1",
-        name: "En jacka",
+        name: "Jeans jacka",
         date: "2024-09-02",
         price: "400",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: ["images/products/jacketjeans1.png", "images/products/jacketjeans2.png", "images/products/jacketjeans3.png"]
     },
     {
         productid: 2,
         category: "1",
-        name: "En annan jacka",
+        name: "Annan jacka",
         date: "2024-08-01",
         price: "600",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: ["images/products/jacketmisc1.png", "images/products/jacketmisc2.png"]
     },
     {
         productid: 3,
         category: "1",
-        name: "En tredje jacka",
+        name: "Läderjacka",
         date: "2024-07-22",
         price: "550",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: ["images/products/jacketleather.png"]
     },
     {
         productid: 4,
