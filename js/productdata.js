@@ -13,9 +13,9 @@ const groupList = [
 
 ////////// DEFAULT LIST OF PRODUCT CATEGORIES
 const categoryList = [
-    { categoryid: 1, name: "Jackor", image: "", group: "clothes" },
-    { categoryid: 2, name: "Hooodies", image: "", group: "clothes" },
-    { categoryid: 3, name: "T-shirts", image: "", group: "clothes" },
+    { categoryid: 1, name: "Jackor", image: "images/categories/jackor.png", group: "clothes" },
+    { categoryid: 2, name: "Hooodies", image: "images/categories/hoodies.png", group: "clothes" },
+    { categoryid: 3, name: "T-shirts", image: "images/categories/tshirts.png", group: "clothes" },
     { categoryid: 4, name: "Brädor", image: "", group: "skate" },
     { categoryid: 5, name: "Solglasögon", image: "", group: "misc" },
     { categoryid: 6, name: "Prylar", image: "", group: "misc" }
