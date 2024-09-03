@@ -31,6 +31,13 @@ async function loadProductData() {
             productStock.lastElementChild.innerText = `I Lager (${product.amount})`;
 
             return product;
+
+            productImage.innerHTML = "";
+            for (const image of product.image) {
+                const imgElement = document.createElement("img");
+                imgElement.src = image;
+                productImage.appendChild(imgElement);
+            }
         }
     }
 }

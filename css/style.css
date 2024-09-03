@@ -201,7 +201,6 @@ body > header .hero .hero-text {
 }
 
 
-
 /* NAV MENU BURGER BUTTON */
 
 #nav-toggle {
@@ -300,14 +299,15 @@ main section {
     margin-bottom: 2rem;
 } */
 
-main img {
-    max-width: 600px;
+.container img {
+    max-width: 100%;
     height: auto;
     opacity: 0.75;
+    padding: 0;
    
 }
 
-main a{
+.text-link{
     text-decoration: none;
     color: white(1, 1, 1);
     font-weight: bolder;
@@ -317,27 +317,66 @@ main a{
     border-radius: 3px;
 
 }
-a:visited{
+
+.text-link:visited{
     color: #fff;
 }
-a:hover{
+.text-link:hover{
     opacity: 0.8;
 }
 .category-card{
     background-color: rgb(243, 243, 243);
     color: black;
     display: flex;
-    justify-content: space-between ;
+    justify-content: space-between;
+    flex-direction: column;
 }
-.text-info{
-    padding: 100px;
 
+.text-info{
+    padding: 30px;
     text-align: start;
 }
+
 .text-info p{
     margin-bottom: 30px;
     font-weight: bolder;
+    font-size: 0.8rem;
 }
+
+/* Test av mouseovereffekt */
+
+.container {
+    position: relative;
+    text-align: center;
+    min-width: 200px;
+  }
+
+.container:hover {
+    opacity: 0.7;
+  }
+
+.container:hover .centered {
+    opacity: 1;
+  }
+
+  .container .text {
+    font-weight: 600;
+    color: var(--page-text-color);
+    font-size: 3rem;
+    padding: 16px 32px;
+    text-shadow: 0.01em 0.01em #333;
+  }
+
+  .centered {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center; 
+  }
 
 
 
@@ -357,4 +396,34 @@ a:hover{
     #nav-toggle {
         display: none;
     }
+
+    .text-info p{
+        margin-bottom: 30px;
+        font-weight: bolder;
+        font-size: 1rem;
+    }
+
+    .container .text { 
+        font-size: 8rem;
+      }
+}
+
+@media all and (min-width: 800px){
+
+    .category-card{
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .container img {
+        max-width: 600px;
+      }
+
+    .text-info{
+        max-width: 35%;
+        text-align: start;
+        margin: auto;
+        padding:30px;
+    }
+
 }
