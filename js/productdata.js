@@ -16,9 +16,9 @@ const categoryList = [
     { categoryid: 1, name: "Jackor", image: "images/categories/jackor.png", group: "clothes" },
     { categoryid: 2, name: "Hooodies", image: "images/categories/hoodies.png", group: "clothes" },
     { categoryid: 3, name: "T-shirts", image: "images/categories/tshirts.png", group: "clothes" },
-    { categoryid: 4, name: "Brädor", image: "", group: "skate" },
-    { categoryid: 5, name: "Solglasögon", image: "", group: "misc" },
-    { categoryid: 6, name: "Prylar", image: "", group: "misc" }
+    { categoryid: 4, name: "Brädor", image: "images/categories/skateboard1.png", group: "skate" },
+    { categoryid: 5, name: "Solglasögon", image: "images/categories/sunglasses.png", group: "misc" },
+    { categoryid: 6, name: "Prylar", image: "images/categories/prylar.png", group: "misc" }
 ];
 
 ////////// DEFAULT PRODUCT LIST
