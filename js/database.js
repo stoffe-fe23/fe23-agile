@@ -87,13 +87,13 @@ export async function addProduct(productName, productDescription, productPrice, 
                 description: productDescription,
                 price: productPrice,
                 category: productCategory,
-                image: JSON.stringify([productImage])
+                image: JSON.stringify(Array.isArray(productImage) ? productImage : [productImage])
             };
             const dbTrans = db.transaction(["products"], "readwrite");
 
             dbTrans.addEventListener("complete", (event) => {
                 console.log("Database transaction complete.");
-                resolve();
+                resolve(newProduct);
             });
 
             dbTrans.addEventListener("error", (event) => {

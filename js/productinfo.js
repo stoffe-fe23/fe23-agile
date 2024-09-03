@@ -19,12 +19,18 @@ async function loadProductData() {
             const productName = document.querySelector(".product-name");
             const productDesc = document.querySelector(".product-desc");
             const productPrice = document.querySelector(".product-price");
-            const productImage = document.querySelector(".product-image img");
+            const productImage = document.querySelector(".product-image");
 
             productName.innerText = product.name;
             productDesc.innerText = product.description;
             productPrice.innerText = product.price;
-            productImage.src = product.image[0];
+
+            productImage.innerHTML = "";
+            for (const image of product.image) {
+                const imgElement = document.createElement("img");
+                imgElement.src = image;
+                productImage.appendChild(imgElement);
+            }
         }
     }
 }
