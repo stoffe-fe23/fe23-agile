@@ -57,16 +57,16 @@ const productList = [
         date: "2024-09-02",
         price: "1000",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        image: ["images/products/skateboard1.png"]
     },
     {
         productid: 5,
         category: "4",
-        name: "En annan bräda",
+        name: "Muterad skateboard",
         date: "2024-08-12",
         price: "1200",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        description: "Om AI fått designa en skateboard hade den sett ut så här...",
+        image: ["images/products/mutantboard.png", "images/products/mutantboard2.png"]
     }
 ];
 
