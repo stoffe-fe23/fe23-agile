@@ -30,11 +30,11 @@ async function showProductList(targetSelector) {
             const image = card.querySelector("img");
             const label = card.querySelector("h3");
             const desc = card.querySelector("div");
-            const button = card.querySelector("a");
+            const links = card.querySelectorAll("a");
             image.src = product.image[0];
             label.innerText = product.name;
             desc.innerText = product.description;
-            button.href = `productinfo.html?product=${product.productid}`;
+            links.forEach((link) => { link.href = `productinfo.html?product=${product.productid}`; });
             outBox.appendChild(card);
         }
     }
