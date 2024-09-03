@@ -202,13 +202,6 @@ body > header .hero .hero-text {
 
 /* Test av mouseovereffekt */
 
- .front-images {
-    border-radius: 10px;
-    margin:1vw;
-    transition: .5s ease;
-      backface-visibility: hidden;
-    
- }
     .container {
         position: relative;
         text-align: center;
