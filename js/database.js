@@ -247,6 +247,38 @@ export async function updateCartProductAmount(key, updatedAmount) {
     })
 }
 
+export async function removeProductFromCart(key) {
+    if(!db) {
+        console.log('Database not initialized');
+        return;
+    }
+
+    try {
+        const transaction = db.transaction('shoppingcart', 'readwrite');
+        const objectStore = transaction.objectStore('shoppingcart');
+        const deleteRequest = objectStore.delete(key);
+
+        deleteRequest.onsuccess = () => {
+            console.log('Key successfully deleted.');
+        };
+
+        deleteRequest.onerror = () => {
+            console.error('Error deleting key:', deleteRequest.error);
+        };
+
+        transaction.oncomplete = () => {
+            console.log('Transaction completed successfully.');
+        };
+
+        transaction.onerror = () => {
+            console.error('Transaction error:', transaction.error);
+        };
+
+    } catch (error) {
+        console.error('An error occurred:', error);
+    }
+}
+
 function timestampToDate(timestamp, isMilliSeconds = true, locale = 'sv-SE') {
     const dateObj = new Date(isMilliSeconds ? timestamp : timestamp * 1000);
     const formatLocale = (locale ?? navigator.language);
