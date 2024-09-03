@@ -24,8 +24,8 @@ const generateProductCard = (product) => {
     div.classList.add('latest-product-card')
     div.innerHTML = `            
         <img class="latest-product-img" src="${product.image[0]}" alt="">
-        <div class="text-info">
-            <a class="text-link" href="productinfo.html?product=${product.productid}">${product.name}</a>
+        <div class="latest-product-info">
+            <a class="latest-product-link" href="productinfo.html?product=${product.productid}">${product.name}</a>
         </div>`
     return div
 }

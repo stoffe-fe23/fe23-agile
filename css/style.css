@@ -343,31 +343,78 @@ main section {
     font-size: 0.8rem;
 }
 
-.new-card {
+/*.new-card {
         background-color: rgb(243, 243, 243);
         color: black;
         /*display: flex;
         justify-content: space-between ;
-        width: 30px;*/
-}
-
-.new-section {
+        width: 30px;
+}*/
+.latest-products-container {
     background-color: rgba(255, 255, 255 0.2);
+
+    margin-bottom: 160px;
+    margin-top: 110px;
+}
+
+.latest-product-card{
+    width: 100%;
+    max-width: 400px;
+   margin:1rem auto;
+}
+.latest-product-img{
+    width: 100%;
+}
+
+.latest-product-link{
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    font-weight: bolder;
+    background-color: #333;
+    padding: 10px 25px;
+    border-radius: 3px;
+}
+
+@media all and (min-width: 680px) {
+    .latest-products-header {
+        color: black;
+        margin-top: 80px;
+        margin: auto;
+    }
+    .latest-products-container {
+        background-color: rgba(255, 255, 255 0.2);
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        justify-content: space-evenly ;
+        align-items: center;
+        margin-bottom: 160px;
+        margin-top: 110px;
+    }
+
+    .latest-product-card{
+        width: 25%;
+    }
+
+
+    .latest-product-info {
     display: flex;
-    flex-direction: row;
-    gap: 50px;
-    align-items: center;
-}
-.new-header {
-    color: black;
+    justify-content: center;
+    margin-top: 27px;
+    }
+
+    .latest-product-link{
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        font-weight: bolder;
+        background-color: #333;
+        padding: 10px 25px;
+        border-radius: 3px;
+    }
 }
 
-.new-img{
-    width: fit-content;
-        height: auto;
-        opacity: 0.75;
-
-}
 /* Test av mouseovereffekt */
 
 .container {
@@ -432,6 +479,11 @@ main section {
     .container .text { 
         font-size: 8rem;
       }
+
+    .latest-products-container {
+        display: flex;
+
+    }
 }
 
 @media all and (min-width: 800px){
@@ -451,5 +503,6 @@ main section {
         margin: auto;
         padding:30px;
     }
+
 
 }
