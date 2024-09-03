@@ -19,7 +19,7 @@ async function loadProductData() {
             const productName = document.querySelector(".product-name");
             const productDesc = document.querySelector(".product-desc");
             const productPrice = document.querySelector(".product-price");
-            const productImage = document.querySelector(".product-image img");
+            const productImage = document.querySelector(".product-image");
             const productElement = document.querySelector('.productinfo-page');
             const productStock = document.querySelector('.product-stock');
 
@@ -30,14 +30,14 @@ async function loadProductData() {
             productElement.id = `productid-${productId}`;
             productStock.lastElementChild.innerText = `I Lager (${product.amount})`;
 
-            return product;
-
             productImage.innerHTML = "";
             for (const image of product.image) {
                 const imgElement = document.createElement("img");
                 imgElement.src = image;
                 productImage.appendChild(imgElement);
             }
+
+            return product;
         }
     }
 }
@@ -46,7 +46,7 @@ const buyButton = document.querySelector('.product-buy');
 buyButton.addEventListener('click', async (event) => {
     try {
         const product = await loadProductData();
-        if(product) {
+        if (product) {
             db.addToCart(product.productid, 1)
             console.log('added to cart');
         }
