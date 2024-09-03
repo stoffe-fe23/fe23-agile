@@ -18,7 +18,8 @@ const categoryList = [
     { categoryid: 3, name: "T-shirts", image: "images/categories/tshirts.png", group: "clothes" },
     { categoryid: 4, name: "Brädor", image: "images/categories/skateboard1.png", group: "skate" },
     { categoryid: 5, name: "Solglasögon", image: "images/categories/sunglasses.png", group: "misc" },
-    { categoryid: 6, name: "Prylar", image: "images/categories/prylar.png", group: "misc" }
+    { categoryid: 6, name: "Prylar", image: "images/categories/prylar.png", group: "misc" },
+    { categoryid: 7, name: "Skydd", image: "images/categories/skydd.png", group: "skate" }
 ];
 
 ////////// DEFAULT PRODUCT LIST
