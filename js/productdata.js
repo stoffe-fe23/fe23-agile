@@ -31,6 +31,7 @@ const productList = [
         date: "2024-09-02 08:00:01",
         price: "400",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
+        amount: 20,
         image: ["images/products/jacketjeans1.png", "images/products/jacketjeans2.png", "images/products/jacketjeans3.png"]
     },
     {
@@ -40,6 +41,7 @@ const productList = [
         date: "2024-08-01 08:00:00",
         price: "600",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
+        amount: 25,
         image: ["images/products/jacketmisc1.png", "images/products/jacketmisc2.png"]
     },
     {
@@ -49,6 +51,7 @@ const productList = [
         date: "2024-07-22 08:00:00",
         price: "550",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
+        amount: 10,
         image: ["images/products/jacketleather.png"]
     },
     {
@@ -58,6 +61,7 @@ const productList = [
         date: "2024-09-02 10:00:01",
         price: "1000",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
+        amount: 50,
         image: ["images/products/skateboard1.png"]
     },
     {
@@ -66,6 +70,7 @@ const productList = [
         name: "Muterad skateboard",
         date: "2024-08-12 09:00:00",
         price: "1200",
+        amount: 40,
         description: "Om AI fått designa en skateboard hade den sett ut så här...",
         image: ["images/products/mutantboard.png", "images/products/mutantboard2.png"]
     }

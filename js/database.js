@@ -10,7 +10,7 @@ function initializeDB() {
     return new Promise((resolve, reject) => {
         // Only do this if the DB has not already been set up... 
         if (!db) {
-            const dbOpen = window.indexedDB.open("skateshop", 1);
+            const dbOpen = window.indexedDB.open("skateshop", 6);
 
             dbOpen.addEventListener("error", (event) => {
                 console.log("Could not open local IndexedDB!");
@@ -23,24 +23,35 @@ function initializeDB() {
                 resolve();
             });
 
-            // Setup: Create DB stores for categories and products
+            // Setup: Create DB stores for categories, products and cart
             dbOpen.addEventListener("upgradeneeded", (event) => {
                 db = event.target.result;
 
                 // Categories table
-                const dbCategories = db.createObjectStore("categories", { keyPath: "id", autoIncrement: true });
-                dbCategories.createIndex("name", "name", { unique: false });
-                dbCategories.createIndex("image", "image", { unique: false });
-                dbCategories.createIndex("group", "group", { unique: false });
+                if(!db.objectStoreNames.contains('categories')) {
+                    const dbCategories = db.createObjectStore("categories", { keyPath: "id", autoIncrement: true });
+                    dbCategories.createIndex("name", "name", { unique: false });
+                    dbCategories.createIndex("image", "image", { unique: false });
+                    dbCategories.createIndex("group", "group", { unique: false });
+                }
 
                 // Products table
-                const dbProducts = db.createObjectStore("products", { keyPath: "id", autoIncrement: true });
-                dbProducts.createIndex("name", "name", { unique: false });
-                dbProducts.createIndex("date", "date", { unique: false });
-                dbProducts.createIndex("description", "description", { unique: false });
-                dbProducts.createIndex("price", "price", { unique: false });
-                dbProducts.createIndex("category", "category", { unique: false });
-                dbProducts.createIndex("image", "image", { unique: false });
+                if(!db.objectStoreNames.contains('products')) {
+                    const dbProducts = db.createObjectStore("products", { keyPath: "id", autoIncrement: true });
+                    dbProducts.createIndex("name", "name", { unique: false });
+                    dbProducts.createIndex("date", "date", { unique: false });
+                    dbProducts.createIndex("description", "description", { unique: false });
+                    dbProducts.createIndex("price", "price", { unique: false });
+                    dbProducts.createIndex("category", "category", { unique: false });
+                    dbProducts.createIndex("image", "image", { unique: false });
+                }
+
+                // Cart table
+                if(!db.objectStoreNames.contains('shoppingcart')) {
+                    const dbCart = db.createObjectStore("shoppingcart", { keyPath: "id", autoIncrement: true });
+                    dbCart.createIndex("productid", "productid", { unique: true });
+                    dbCart.createIndex("amount", "amount", { unique: false });
+                }
 
                 console.log("IndexedDB setup complete.");
             });
@@ -106,6 +117,35 @@ export async function addProduct(productName, productDescription, productPrice, 
     });
 }
 
+// Add product to the admin-added cart table in IndexedDB
+export async function addToCart(productId, productAmount) {
+    await initializeDB();
+    return new Promise((resolve, reject) => {
+        if (db) {
+            const newProduct = { 
+                productid: productId, 
+                amount: productAmount
+            };
+            const dbTrans = db.transaction(["shoppingcart"], "readwrite");
+
+
+            dbTrans.addEventListener("complete", (event) => {
+                console.log("Database transaction complete.");
+                resolve();
+            });
+
+
+            dbTrans.addEventListener("error", (event) => {
+                console.log("DB transaction error! Product already in cart", event);
+                reject(event);
+            });
+
+
+            dbTrans.objectStore("shoppingcart").add(newProduct);
+        }
+    });
+}
+
 // Get list of admin-added categories from IndexedDB
 export async function getCategories() {
     await initializeDB();
@@ -148,6 +188,63 @@ export async function getProducts() {
             });
         }
     });
+}
+
+// Get list of cart from IndexedDB
+export async function getShoppingCart() {
+    await initializeDB();
+    return new Promise((resolve, reject) => {
+        if (db) {
+            const dbReq = db.transaction("shoppingcart").objectStore("shoppingcart").getAll();
+
+            dbReq.addEventListener("success", (event) => {
+                console.log("Fetched shopping cart...");
+                resolve(event.target.result);
+            });
+
+            dbReq.addEventListener("error", (event) => {
+                console.log("Error fetching shopping cart!", event);
+                reject(event);
+            });
+        }
+    });
+}
+
+export async function updateCartProductAmount(key, updatedAmount) {
+    return new Promise((resolve, reject) => {
+        if(db) {
+            const objectStore = db.transaction('shoppingcart', 'readwrite').objectStore('shoppingcart');
+            const getRequest = objectStore.get(key);
+
+            getRequest.onsuccess = () => {
+                const cartProduct = getRequest.result;
+
+                if(cartProduct) {
+                    cartProduct.amount = updatedAmount;
+
+                    const updateRequest = objectStore.put(cartProduct);
+                    updateRequest.onsuccess = () => {
+                        console.log(`Product in cart amount updated to: ${updatedAmount}`);
+                        resolve();
+                    }
+
+                    updateRequest.onerror = (event) => {
+                        console.error('Failed to update product amount:', event.target.error);
+                        reject(event.target.error);
+                    }
+                }
+                else {
+                    console.error('Product not found in cart');
+                    reject('Product not found');
+                }
+            }
+
+            getRequest.onerror = (event) => {
+                console.error('Failed to get product from cart:', event.target.error);
+                reject(event.target.error);
+            };
+        }
+    })
 }
 
 function timestampToDate(timestamp, isMilliSeconds = true, locale = 'sv-SE') {
