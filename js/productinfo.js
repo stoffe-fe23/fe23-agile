@@ -39,10 +39,15 @@ const buyButton = document.querySelector('.product-buy');
 buyButton.addEventListener('click', async (event) => {
     try {
         const product = await loadProductData();
-        if(product) db.addToCart(product.productid, product.name, product.description, product.price)
+        if(product) {
+            db.addToCart(product.productid, 1)
+            console.log('added to cart');
+        }
         else console.log("Error adding product data");
     }
     catch (error) {
         console.log("Error loading product data", error);
     }
 })
+
+db.getShoppingCart().then(list => console.log(list))

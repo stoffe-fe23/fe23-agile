@@ -10,7 +10,7 @@ function initializeDB() {
     return new Promise((resolve, reject) => {
         // Only do this if the DB has not already been set up... 
         if (!db) {
-            const dbOpen = window.indexedDB.open("skateshop", 5);
+            const dbOpen = window.indexedDB.open("skateshop", 6);
 
             dbOpen.addEventListener("error", (event) => {
                 console.log("Could not open local IndexedDB!");
@@ -49,11 +49,8 @@ function initializeDB() {
                 // Cart table
                 if(!db.objectStoreNames.contains('shoppingcart')) {
                     const dbCart = db.createObjectStore("shoppingcart", { keyPath: "id", autoIncrement: true });
-                    dbCart.createIndex("productid", "productid", { unique: false });
+                    dbCart.createIndex("productid", "productid", { unique: true });
                     dbCart.createIndex("amount", "amount", { unique: false });
-                    dbCart.createIndex("price", "price", { unique: false });
-                    dbCart.createIndex("description", "description", { unique: false });
-                    dbCart.createIndex("name", "name", { unique: false });
                 }
 
                 console.log("IndexedDB setup complete.");
@@ -121,15 +118,13 @@ export async function addProduct(productName, productDescription, productPrice, 
 }
 
 // Add product to the admin-added cart table in IndexedDB
-export async function addToCart(productId, productName, productDescription, productPrice) {
+export async function addToCart(productId, productAmount) {
     await initializeDB();
     return new Promise((resolve, reject) => {
         if (db) {
             const newProduct = { 
                 productid: productId, 
-                name: productName,
-                description: productDescription,
-                price: productPrice
+                amount: productAmount
             };
             const dbTrans = db.transaction(["shoppingcart"], "readwrite");
 
@@ -141,7 +136,7 @@ export async function addToCart(productId, productName, productDescription, prod
 
 
             dbTrans.addEventListener("error", (event) => {
-                console.log("DB transaction error!", event);
+                console.log("DB transaction error! Product already in cart", event);
                 reject(event);
             });
 
@@ -213,6 +208,43 @@ export async function getShoppingCart() {
             });
         }
     });
+}
+
+export async function updateCartProductAmount(key, updatedAmount) {
+    return new Promise((resolve, reject) => {
+        if(db) {
+            const objectStore = db.transaction('shoppingcart', 'readwrite').objectStore('shoppingcart');
+            const getRequest = objectStore.get(key);
+
+            getRequest.onsuccess = () => {
+                const cartProduct = getRequest.result;
+
+                if(cartProduct) {
+                    cartProduct.amount = updatedAmount;
+
+                    const updateRequest = objectStore.put(cartProduct);
+                    updateRequest.onsuccess = () => {
+                        console.log(`Product in cart amount updated to: ${updatedAmount}`);
+                        resolve();
+                    }
+
+                    updateRequest.onerror = (event) => {
+                        console.error('Failed to update product amount:', event.target.error);
+                        reject(event.target.error);
+                    }
+                }
+                else {
+                    console.error('Product not found in cart');
+                    reject('Product not found');
+                }
+            }
+
+            getRequest.onerror = (event) => {
+                console.error('Failed to get product from cart:', event.target.error);
+                reject(event.target.error);
+            };
+        }
+    })
 }
 
 function timestampToDate(timestamp, isMilliSeconds = true, locale = 'sv-SE') {
