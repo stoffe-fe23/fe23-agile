@@ -31,9 +31,10 @@ async function showProductList(targetSelector) {
             const label = card.querySelector("h3");
             const desc = card.querySelector("div");
             const links = card.querySelectorAll("a");
+
             image.src = product.image[0];
             label.innerText = product.name;
-            desc.innerText = product.description;
+            desc.innerText = getTruncatedString(product.description, 250);
             links.forEach((link) => { link.href = `productinfo.html?product=${product.productid}`; });
             outBox.appendChild(card);
         }
@@ -47,4 +48,16 @@ async function showProductList(targetSelector) {
             listTitle.innerText = displayedCategory.name;
         }
     }
+}
+
+// Trim down length of truncText string to the first full word before maxLength if possible.
+function getTruncatedString(truncText, maxLength) {
+    if (maxLength < truncText.length) {
+        let cutOffLength = truncText.lastIndexOf(" ", maxLength);
+        if (cutOffLength < 1) {
+            cutOffLength = maxLength;
+        }
+        truncText = truncText.slice(0, cutOffLength) + "…";
+    }
+    return truncText;
 }
