@@ -13,12 +13,13 @@ const groupList = [
 
 ////////// DEFAULT LIST OF PRODUCT CATEGORIES
 const categoryList = [
-    { categoryid: 1, name: "Jackor", image: "", group: "clothes" },
-    { categoryid: 2, name: "Hooodies", image: "", group: "clothes" },
-    { categoryid: 3, name: "T-shirts", image: "", group: "clothes" },
-    { categoryid: 4, name: "Brädor", image: "", group: "skate" },
-    { categoryid: 5, name: "Solglasögon", image: "", group: "misc" },
-    { categoryid: 6, name: "Prylar", image: "", group: "misc" }
+    { categoryid: 1, name: "Jackor", image: "images/categories/jackor.png", group: "clothes" },
+    { categoryid: 2, name: "Hooodies", image: "images/categories/hoodies.png", group: "clothes" },
+    { categoryid: 3, name: "T-shirts", image: "images/categories/tshirts.png", group: "clothes" },
+    { categoryid: 4, name: "Brädor", image: "images/categories/skateboard1.png", group: "skate" },
+    { categoryid: 5, name: "Solglasögon", image: "images/categories/sunglasses.png", group: "misc" },
+    { categoryid: 6, name: "Prylar", image: "images/categories/prylar.png", group: "misc" },
+    { categoryid: 7, name: "Skydd", image: "images/categories/skydd.png", group: "skate" }
 ];
 
 ////////// DEFAULT PRODUCT LIST
@@ -26,47 +27,52 @@ const productList = [
     {
         productid: 1,
         category: "1",
-        name: "En jacka",
-        date: "2024-09-02",
+        name: "Jeans jacka",
+        date: "2024-09-02 08:00:01",
         price: "400",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        amount: 20,
+        image: ["images/products/jacketjeans1.png", "images/products/jacketjeans2.png", "images/products/jacketjeans3.png"]
     },
     {
         productid: 2,
         category: "1",
-        name: "En annan jacka",
-        date: "2024-08-01",
+        name: "Annan jacka",
+        date: "2024-08-01 08:00:00",
         price: "600",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        amount: 25,
+        image: ["images/products/jacketmisc1.png", "images/products/jacketmisc2.png"]
     },
     {
         productid: 3,
         category: "1",
-        name: "En tredje jacka",
-        date: "2024-07-22",
+        name: "Läderjacka",
+        date: "2024-07-22 08:00:00",
         price: "550",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        amount: 10,
+        image: ["images/products/jacketleather.png"]
     },
     {
         productid: 4,
         category: "4",
         name: "En skateboard",
-        date: "2024-09-02",
+        date: "2024-09-02 10:00:01",
         price: "1000",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        amount: 50,
+        image: ["images/products/skateboard1.png"]
     },
     {
         productid: 5,
         category: "4",
-        name: "En annan bräda",
-        date: "2024-08-12",
+        name: "Muterad skateboard",
+        date: "2024-08-12 09:00:00",
         price: "1200",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
-        image: []
+        amount: 40,
+        description: "Om AI fått designa en skateboard hade den sett ut så här...",
+        image: ["images/products/mutantboard.png", "images/products/mutantboard2.png"]
     }
 ];
 

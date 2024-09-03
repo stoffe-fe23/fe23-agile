@@ -15,7 +15,7 @@ async function showProductList(targetSelector) {
     const categories = await productdata.getCategories();
     const outBox = document.querySelector(targetSelector);
     const template = document.querySelector("#product-card-template");
-    const filterBy = (!isNaN(categoryFilter) && (categoryFilter >= 0) && (categoryFilter < categories.length)) ? categoryFilter : null;
+    const filterBy = (!isNaN(categoryFilter) && (categoryFilter >= 0)) ? categoryFilter : null;
 
     const products = await productdata.getProducts(filterBy);
 
@@ -30,21 +30,34 @@ async function showProductList(targetSelector) {
             const image = card.querySelector("img");
             const label = card.querySelector("h3");
             const desc = card.querySelector("div");
-            const button = card.querySelector("a");
+            const links = card.querySelectorAll("a");
+
             image.src = product.image[0];
             label.innerText = product.name;
-            desc.innerText = product.description;
-            button.href = `productinfo.html?product=${product.productid}`;
+            desc.innerText = getTruncatedString(product.description, 250);
+            links.forEach((link) => { link.href = `productinfo.html?product=${product.productid}`; });
             outBox.appendChild(card);
         }
     }
 
     // Update page title to show the name of the category whose products are displayed. 
     const listTitle = document.querySelector("main > section > h2");
-    if (!isNaN(categoryFilter) && (categoryFilter >= 0) && (categoryFilter < categories.length)) {
+    if (!isNaN(categoryFilter) && (categoryFilter >= 0)) {
         const displayedCategory = categories.find((category) => category.categoryid == categoryFilter);
         if (displayedCategory) {
             listTitle.innerText = displayedCategory.name;
         }
     }
+}
+
+// Trim down length of truncText string to the first full word before maxLength if possible.
+function getTruncatedString(truncText, maxLength) {
+    if (maxLength < truncText.length) {
+        let cutOffLength = truncText.lastIndexOf(" ", maxLength);
+        if (cutOffLength < 1) {
+            cutOffLength = maxLength;
+        }
+        truncText = truncText.slice(0, cutOffLength) + "…";
+    }
+    return truncText;
 }

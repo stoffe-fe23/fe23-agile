@@ -55,6 +55,14 @@ if (newProductForm) {
     newProductForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
+        onNewProductSubmit(event.target).then((product) => {
+            alert("Ny produkt skapad!");
+            event.target.reset();
+            document.querySelector("#product-preview").innerHTML = "";
+        }).catch((error) => {
+            console.error("Error creating new product!", error);
+        });
+        /*
         const formData = new FormData(event.target);
         const fileReader = new FileReader();
         const formImage = formData.get("product-image");
@@ -77,8 +85,10 @@ if (newProductForm) {
         alert("Ny produkt skapad!");
         event.target.reset();
         document.querySelector("#product-preview").innerHTML = "";
+        */
     });
 }
+
 
 // Show preview of image selected in New Product form
 const productImageInput = document.querySelector("#create-product-image");
@@ -86,12 +96,15 @@ if (newProductForm && productImageInput) {
     productImageInput.addEventListener("change", (event) => {
         const previewBox = document.querySelector("#product-preview");
         const formData = new FormData(newProductForm);
+        const images = formData.getAll("product-image");
 
         previewBox.innerHTML = "";
-        const previewImage = document.createElement("img");
-        console.log("DEBUG", formData.get("product-image"));
-        previewImage.src = URL.createObjectURL(formData.get("product-image"));
-        previewBox.append(previewImage);
+        for (const image of images) {
+            const previewImage = document.createElement("img");
+            console.log("DEBUG", formData.get("product-image"));
+            previewImage.src = URL.createObjectURL(image);
+            previewBox.append(previewImage);
+        }
     });
 }
 
@@ -113,4 +126,53 @@ async function buildCategoryMenuOptions(targetSelectMenu) {
         menuOption.innerText = category.name;
         targetSelectMenu.appendChild(menuOption);
     }
+}
+
+// Handle submitted New Product form data, store it in the db.
+async function onNewProductSubmit(productForm) {
+    const images = [];
+    const formData = new FormData(productForm);
+    const formImages = formData.getAll("product-image");
+
+    // Get and encode selected product images
+    for (const formImage of formImages) {
+        try {
+            const image = await readProductImage(formImage);
+            images.push(image);
+        }
+        catch (error) {
+            console.error("Unable to read file", formImage);
+        }
+    }
+
+    console.log("IMAGES ARE", images);
+
+    // Save the product
+    const newProduct = await database.addProduct(
+        formData.get("product-name"),
+        formData.get("product-desc"),
+        formData.get("product-price"),
+        formData.get("product-category"),
+        images
+    );
+
+    return newProduct;
+}
+
+function readProductImage(formImage) {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+
+        fileReader.addEventListener("load", (event) => {
+            resolve(fileReader.result);
+        });
+
+        fileReader.addEventListener("error", (event) => {
+            reject("Unable to load file.");
+        });
+
+        if (formImage) {
+            fileReader.readAsDataURL(formImage);
+        }
+    });
 }
