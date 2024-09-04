@@ -92,7 +92,7 @@ async function calculateTotalPrice(shoppingCart) {
     return totalPrice;
 }
 
-// Update total price with the newest update from cart in IndexedDB
+// Update total price from cart in IndexedDB after everything has loaded
 async function updateTotalPrice() {
     const shoppingCart = await db.getShoppingCart();
     const totalPrice = await calculateTotalPrice(shoppingCart);
