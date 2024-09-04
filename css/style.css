@@ -309,12 +309,14 @@ main section {
     margin-bottom: 2rem;
 } */
 
+
+
+
 .container img {
     max-width: 100%;
     height: auto;
     opacity: 0.75;
     padding: 0;
-
 }
 
 .text-link {
@@ -326,6 +328,10 @@ main section {
     padding: 5px 25px;
     border-radius: 3px;
 
+}
+
+.latest-products-header{
+    color: black;
 }
 
 .text-link:visited {
@@ -347,6 +353,7 @@ main section {
 .text-info {
     padding: 30px;
     text-align: start;
+    order: 2;
 }
 
 .text-info p {
@@ -529,5 +536,17 @@ main section {
         padding: 30px;
     }
 
+    .text-info {
+        padding: 30px;
+        text-align: start;
+        order: 1;
+    }
+
+    .container {
+        position: relative;
+        text-align: center;
+        min-width: 200px;
+        order: 2;
+    }
 
 }
