@@ -73,7 +73,77 @@ const productList = [
         amount: 40,
         description: "Om AI fått designa en skateboard hade den sett ut så här...",
         image: ["images/products/mutantboard.png", "images/products/mutantboard2.png"]
-    }
+    },
+    {
+        productid: 6,
+        category: "4",
+        name: "Mini skateboard",
+        date: "2024-08-15 09:00:00",
+        price: "1499",
+        amount: 30,
+        description: "Den bästa mini-skateboarden på marknaden",
+        image: ["images/skateboard-on-a-table(1).jpeg"]
+    },
+    {
+        productid: 7,
+        category: "1",
+        name: "male jeans jacket",
+        date: "2024-08-15 09:15:00",
+        price: "2499",
+        amount: 10,
+        description: "En väldigt stylish jeansjacka för män",
+        image: ["images/skateboard-on-a-table(1).jpeg"]
+    },
+    {
+        productid: 8,
+        category: "2",
+        name: "black hoodie",
+        date: "2024-08-15 09:50:00",
+        price: "499",
+        amount: 50,
+        description: "en cool svart hoodie",
+        image: ["images/baggy-hoodie-on-a-model.jpeg"]
+    },
+    {
+        productid: 9,
+        category: "3",
+        name: "white T-shirt",
+        date: "2024-08-15 10:50:00",
+        price: "299",
+        amount: 50,
+        description: "en vit t-shirt som passar perfekt under en jacka",
+        image: ["images/white-t-shirt-and-no-jacket.jpeg"]
+    },
+    {
+        productid: 10,
+        category: "5",
+        name: "Coola shades",
+        date: "2024-09-15 11:50:00",
+        price: "199",
+        amount: 50,
+        description: "De nyaste coolaste solglasögonen du hittar på marknaden",
+        image: ["images/cool-shades-on-a-model.jpeg"]
+    },
+    {
+        productid: 11,
+        category: "6",
+        name: "Skate vax",
+        date: "2024-09-15 10:50:00",
+        price: "149",
+        amount: 50,
+        description: "Det bästa vaxet för det bästa glidet!",
+        image: ["images/skate-wax-product.jpeg"]
+    },
+    {
+        productid: 12,
+        category: "7",
+        name: "Svart hjälm",
+        date: "2024-08-15 10:50:00",
+        price: "399",
+        amount: 50,
+        description: "en perfekt hjälm för dig som brukar trilla o slå huvudet mycket!",
+        image: ["images/skatehelmet.jpg"]
+    },
 ];
 
 /*
