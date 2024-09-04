@@ -509,7 +509,19 @@ main section {
         display: flex;
 
     }
+    .latest-products-header {
+        color: black;
+    }
+
 }
+
+
+@media all and (min-width: 100px) {
+    .latest-products-header {
+        color: black;
+    }
+}
+
 
 @media all and (min-width: 800px) {
 
