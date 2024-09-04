@@ -2,12 +2,32 @@
     Script for building content on the product list page.
 */
 import * as productdata from "./productdata.js";
+import * as db from "./database.js";
 
 // Display products in product list element. 
 const productCardTemplate = document.querySelector("#product-card-template");
 if (productCardTemplate) {
     showProductList(".product-list");
 }
+
+const productListEl = document.querySelector('.product-list');
+productListEl.addEventListener('click', async (event) => {
+    event.stopPropagation();
+    const buyButton = event.target.closest('.product-list-card-footer > *:last-child');
+
+    if(buyButton) {
+        const productId = Number(event.target.closest('.product-list-card').id.replace(/\D/g,''));
+        if(productId) {
+            try {
+                await db.addToCart(productId, 1);
+                console.log('Added to cart');
+            }
+            catch(error) {
+                console.log('Failed adding to cart, already in cart, error:', error);
+            }
+        }
+    }
+})
 
 // Fetch list of products in the specified category and display them on the page. 
 async function showProductList(targetSelector) {
@@ -16,7 +36,7 @@ async function showProductList(targetSelector) {
     const outBox = document.querySelector(targetSelector);
     const template = document.querySelector("#product-card-template");
     const filterBy = (!isNaN(categoryFilter) && (categoryFilter >= 0)) ? categoryFilter : null;
-
+    
     const products = await productdata.getProducts(filterBy);
 
     if (template) {
@@ -32,10 +52,15 @@ async function showProductList(targetSelector) {
             const desc = card.querySelector("div");
             const links = card.querySelectorAll("a");
 
+            card.id = `productid-${product.productid}`;
             image.src = product.image[0];
             label.innerText = product.name;
             desc.innerText = getTruncatedString(product.description, 250);
-            links.forEach((link) => { link.href = `productinfo.html?product=${product.productid}`; });
+            links.forEach((link) => { 
+                if(link.href !== 'productcart.html') {
+                    link.href = `productinfo.html?product=${product.productid}`;
+                }
+             });
             outBox.appendChild(card);
         }
     }
