@@ -203,6 +203,12 @@ body > header .hero .hero-text {
     text-decoration: none;
 }
 
+body > header .hero p {
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+}
+
 
 /* NAV MENU BURGER BUTTON */
 
