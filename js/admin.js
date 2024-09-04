@@ -6,8 +6,10 @@ import * as productdata from "./productdata.js";
 
 //////////////////////// ADD CATEGORIES ////////////////////////
 
-// Submit handler for New Category form. 
+const newProductCatList = document.querySelector("#create-product-category");
 const newCategoryForm = document.querySelector("#create-category-form");
+
+// Submit handler for New Category form. 
 if (newCategoryForm) {
     newCategoryForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -19,7 +21,10 @@ if (newCategoryForm) {
         // Store the new category in the browser IndexedDB.
         fileReader.addEventListener("load", (event) => {
             let imageBlob = fileReader.result;
-            database.addCategory(formData.get("category-name"), imageBlob, formData.get("category-group"));
+            database.addCategory(formData.get("category-name"), imageBlob, formData.get("category-group")).then(() => {
+                buildCategoryMenuOptions(newProductCatList);
+            });
+
         });
 
         if (formImage) {
@@ -62,30 +67,6 @@ if (newProductForm) {
         }).catch((error) => {
             console.error("Error creating new product!", error);
         });
-        /*
-        const formData = new FormData(event.target);
-        const fileReader = new FileReader();
-        const formImage = formData.get("product-image");
-
-        // Store the new product in the browser IndexedDB when image file is loaded. 
-        fileReader.addEventListener("load", (event) => {
-            database.addProduct(
-                formData.get("product-name"),
-                formData.get("product-desc"),
-                formData.get("product-price"),
-                formData.get("product-category"),
-                fileReader.result
-            );
-        });
-
-        if (formImage) {
-            fileReader.readAsDataURL(formImage);
-        }
-
-        alert("Ny produkt skapad!");
-        event.target.reset();
-        document.querySelector("#product-preview").innerHTML = "";
-        */
     });
 }
 
@@ -101,7 +82,6 @@ if (newProductForm && productImageInput) {
         previewBox.innerHTML = "";
         for (const image of images) {
             const previewImage = document.createElement("img");
-            console.log("DEBUG", formData.get("product-image"));
             previewImage.src = URL.createObjectURL(image);
             previewBox.append(previewImage);
         }
@@ -110,7 +90,6 @@ if (newProductForm && productImageInput) {
 
 
 // Build menu options for Category menu in the new Product form.
-const newProductCatList = document.querySelector("#create-product-category");
 if (newProductCatList && newProductForm) {
     buildCategoryMenuOptions(newProductCatList);
 }
@@ -144,8 +123,6 @@ async function onNewProductSubmit(productForm) {
             console.error("Unable to read file", formImage);
         }
     }
-
-    console.log("IMAGES ARE", images);
 
     // Save the product
     const newProduct = await database.addProduct(
