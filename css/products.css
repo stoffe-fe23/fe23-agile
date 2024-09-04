@@ -60,3 +60,14 @@
     background-color: var(--productlink-background-hover-color);
     color: var(--productlink-text-hover-color);
 }
+
+.product-list-card-footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.product-list article > .product-list-card-footer {
+    flex-grow: 0;
+}
