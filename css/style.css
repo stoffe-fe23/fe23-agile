@@ -3,7 +3,6 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 * {
     box-sizing: border-box;
 }
@@ -183,7 +182,8 @@ body > header .hero {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    background-image: url('../images/hero-placeholder.jpg');
+    background-image: url('https://cdn.pixabay.com/photo/2017/08/08/00/22/still-2609564_1280.jpg');
+   /* background-image: url('../images/hero-placeholder.jpg');*/
     background-size: cover;
     background-position: center center;
     overflow: hidden;
