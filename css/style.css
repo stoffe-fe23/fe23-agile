@@ -74,6 +74,8 @@ body > header {
 body > main {
     flex-grow: 1;
     padding: 3rem;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 body.subpage > main {
