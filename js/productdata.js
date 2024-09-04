@@ -92,7 +92,7 @@ const productList = [
         price: "2499",
         amount: 10,
         description: "En väldigt stylish jeansjacka för män",
-        image: ["images/skateboard-on-a-table(1).jpeg"]
+        image: ["images/showing-the-whole-white-t-shirt-.jpeg"]
     },
     {
         productid: 8,
