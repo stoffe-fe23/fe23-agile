@@ -56,11 +56,11 @@ async function showProductList(targetSelector) {
             image.src = product.image[0];
             label.innerText = product.name;
             desc.innerText = getTruncatedString(product.description, 250);
-            links.forEach((link) => { 
-                if(link.href !== 'productcart.html') {
+            links.forEach((link) => {
+                if (!link.href.includes('productcart.html')) {
                     link.href = `productinfo.html?product=${product.productid}`;
                 }
-             });
+            });
             outBox.appendChild(card);
         }
     }
