@@ -504,6 +504,7 @@ main section {
     -ms-transform: translate(-50%, -50%);
 }
 
+
 @media all and (min-width: 680px) {
 
     body > header nav ul {

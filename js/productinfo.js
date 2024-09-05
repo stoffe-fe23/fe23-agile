@@ -36,13 +36,14 @@ async function loadProductData() {
                 const imgElementFull = document.createElement("img");
                 const imgViewer = document.createElement('dialog');
                 const imgViewerClose = document.createElement('button');
-                imgViewerClose.innerText = 'Close';
+                imgViewer.classList.add('dialog-style');
+                imgViewerClose.innerHTML = '&#10006;';
+                imgViewerClose.classList.add('close-viewer-style');
                 imgElement.src = image;
                 imgElementFull.src = image;
 
-
                 productImage.appendChild(imgElement);
-                imgViewer.append(imgElementFull, imgViewerClose);
+                imgViewer.append(imgViewerClose,imgElementFull);
                 document.body.appendChild(imgViewer);
 
                 imgElement.addEventListener('click', (event) => {

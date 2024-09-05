@@ -98,6 +98,20 @@
     flex-grow: 1;
 }
 
+::backdrop{
+    background-color: rgb(211, 210, 210);
+    opacity: 0.75;
+}
+
+.dialog-style{
+    border: none;
+
+}
+
+.close-viewer-style{
+    right: 17px;
+    top: 35px;
+}
 
 
 @media all and (min-width: 680px) {
