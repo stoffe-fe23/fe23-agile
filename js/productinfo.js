@@ -33,8 +33,25 @@ async function loadProductData() {
             productImage.innerHTML = "";
             for (const image of product.image) {
                 const imgElement = document.createElement("img");
+                const imgElementFull = document.createElement("img");
+                const imgViewer = document.createElement('dialog');
+                const imgViewerClose = document.createElement('button');
+                imgViewerClose.innerText = 'Close';
                 imgElement.src = image;
+                imgElementFull.src = image;
+
+
                 productImage.appendChild(imgElement);
+                imgViewer.append(imgElementFull, imgViewerClose);
+                document.body.appendChild(imgViewer);
+
+                imgElement.addEventListener('click', (event) => {
+                    imgViewer.showModal();
+                });
+
+                imgViewerClose.addEventListener('click', (event) => {
+                    imgViewer.close();
+                })
             }
 
             return product;
