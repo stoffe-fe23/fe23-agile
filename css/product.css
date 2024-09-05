@@ -98,23 +98,24 @@
     flex-grow: 1;
 }
 
-::backdrop{
+::backdrop {
     background-color: rgb(211, 210, 210);
     opacity: 0.8;
 }
 
-.dialog-style{
+.dialog-style {
     border: none;
     min-width: 370px;
+    width: fit-content;
 }
 
-.close-viewer-style{
+.close-viewer-style {
     right: 16px;
     top: 34px;
 }
 
-.full-image-style{
-    max-width: 340px;
+.full-image-style {
+    max-width: 100%;
 }
 
 
@@ -126,7 +127,7 @@
         gap: 4rem;
     }
 
-    .full-image-style{
-        max-width: 800px;
+    .full-image-style {
+        max-width: 100%;
     }
 }
