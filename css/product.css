@@ -113,6 +113,10 @@
     top: 35px;
 }
 
+.full-image-style{
+    max-width: 600px;
+}
+
 
 @media all and (min-width: 680px) {
     .product-info {

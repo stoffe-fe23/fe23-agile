@@ -41,6 +41,7 @@ async function loadProductData() {
                 imgViewerClose.classList.add('close-viewer-style');
                 imgElement.src = image;
                 imgElementFull.src = image;
+                imgElementFull.classList.add('full-image-style');
 
                 productImage.appendChild(imgElement);
                 imgViewer.append(imgViewerClose,imgElementFull);

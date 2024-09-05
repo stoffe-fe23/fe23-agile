@@ -62,7 +62,7 @@ const productList = [
         price: "1000",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
         amount: 50,
-        image: ["images/products/skateboard1.png"]
+        image: ["images/products/skateboard1.png", "images/products/skateDecks.jpg"]
     },
     {
         productid: 5,
