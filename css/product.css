@@ -105,16 +105,15 @@
 
 .dialog-style{
     border: none;
-
 }
 
 .close-viewer-style{
     right: 17px;
-    top: 35px;
+    top: 34px;
 }
 
 .full-image-style{
-    max-width: 600px;
+    max-width: 300px;
 }
 
 
@@ -124,5 +123,13 @@
         grid-template-areas: "product-image product-desc product-actions";
         grid-template-columns: auto 3fr 1fr;
         gap: 4rem;
+    }
+
+    .full-image-style{
+        max-width: 200px;
+    }
+
+    .dialog-style{
+        max-width: 600px;
     }
 }
