@@ -1,0 +1,27 @@
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  padding-top: 64px;
+  min-width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label-input {
+  display: flex;
+  gap: 4px;
+  padding-top: 16px;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact-button {
+  margin-top: 16px;
+  padding: 8px;
+  padding-inline: 16px;
+}
