@@ -369,9 +369,14 @@ main section {
         justify-content: space-between ;
         width: 30px;
 }*/
+.latest-products-header {
+    font-size: 2rem;
+    text-align: center;
+}
 
 .latest-product-info{
     margin-top: 20px;
+    text-align: center;
 }
 
 .mouseover:hover{
@@ -385,14 +390,13 @@ main section {
 
 .latest-products-container {
     background-color: rgba(255, 255, 255 0.2);
-    margin-bottom: 160px;
-    margin-top: 30px;
+    margin: 5px auto 4rem auto;
 }
 
 .latest-product-card {
     width: 100%;
     max-width: 400px;
-    margin: 2rem auto;
+    margin: 1rem auto 4rem auto;
 }
 
 .latest-product-img {
@@ -414,6 +418,7 @@ main section {
         color: black;
         margin-top: 80px;
         margin: auto;
+        font-size: 4rem;
     }
 
     .latest-products-container {
@@ -423,8 +428,9 @@ main section {
         gap: 50px;
         justify-content: space-evenly;
         align-items: center;
-        margin-bottom: 160px;
-        margin-top: 110px;
+        /* margin-bottom: 160px;
+        margin-top: 110px; */
+        margin: 5px auto 4rem auto;
     }
 
     .latest-product-card {
