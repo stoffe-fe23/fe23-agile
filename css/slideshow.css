@@ -1,8 +1,8 @@
 * {
     box-sizing: border-box;
-  }
-  
-  /* body {
+}
+
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -11,36 +11,41 @@
     margin: 0;
     background-color: #f0f0f0;
   } */
-  
-  .carousel-container {
+
+.carousel-container {
     position: relative;
     width: 300px;
     overflow: hidden;
-  }
-  
-  .carousel {
+}
+
+.carousel {
     display: flex;
     transition: transform 0.5s ease;
-  }
-  
-  button {
+}
+
+button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
-  }
-  
-  .prev {
+}
+
+.prev {
     left: 0;
-  }
-  
-  .next {
+}
+
+.next {
     right: 0;
-  }
-  
-  button:hover {
-    background-color: rgba(0,0,0,0.8);}
+}
+
+.hide {
+    display: none;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

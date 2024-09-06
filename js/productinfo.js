@@ -6,7 +6,21 @@ import * as db from "./database.js";
 
 const productInfoBox = document.querySelector(".productinfo-page");
 if (productInfoBox) {
-    loadProductData();
+    loadProductData().then((product) => {
+        // Hide slideshow arrows if there is only one image...
+        const imageCount = document.querySelectorAll('.product-image img').length;
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+
+        if (imageCount < 2) {
+            nextButton.classList.add("hide");
+            prevButton.classList.add("hide");
+        }
+        else {
+            nextButton.classList.remove("hide");
+            prevButton.classList.remove("hide");
+        }
+    });
 }
 
 async function loadProductData() {
@@ -44,7 +58,7 @@ async function loadProductData() {
                 imgElementFull.classList.add('full-image-style');
 
                 productImage.appendChild(imgElement);
-                imgViewer.append(imgViewerClose,imgElementFull);
+                imgViewer.append(imgViewerClose, imgElementFull);
                 document.body.appendChild(imgViewer);
 
                 imgElement.addEventListener('click', (event) => {
