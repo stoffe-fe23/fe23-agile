@@ -62,7 +62,7 @@ const productList = [
         price: "1000",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, id nisi excepturi soluta esse animi tempore distinctio? Praesentium illo molestias doloribus ex, exercitationem maiores beatae, aliquid nesciunt, impedit sunt rerum.",
         amount: 50,
-        image: ["images/products/skateboard1.png"]
+        image: ["images/products/skateboard1.png", "images/products/skateDecks.jpg"]
     },
     {
         productid: 5,
@@ -190,7 +190,8 @@ export async function getCategories(filterGroup = null) {
     return categories;
 }
 
-// Retrieve array of all products (both default and admin-added). If filterCategory is set, only products belonging to that category is included.
+// Retrieve array of all products (both default and admin-added). 
+// If filterCategory is set, only products belonging to that category is included.
 export async function getProducts(filterCategory = null) {
     const newProducts = await database.getProducts();
 
@@ -229,4 +230,12 @@ export async function getProducts(filterCategory = null) {
 export async function getProduct(productId) {
     const products = await getProducts();
     return products.find((product) => product.productid == productId);
+}
+
+
+// Get products where the name or description contains the specified string. 
+export async function searchProducts(searchFor) {
+    const products = await getProducts();
+    const searchText = searchFor.toLowerCase();
+    return products.filter((product) => product.name.toLowerCase().includes(searchText) || product.description.toLowerCase().includes(searchText));
 }

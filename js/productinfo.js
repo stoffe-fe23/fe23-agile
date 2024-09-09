@@ -6,7 +6,21 @@ import * as db from "./database.js";
 
 const productInfoBox = document.querySelector(".productinfo-page");
 if (productInfoBox) {
-    loadProductData();
+    loadProductData().then((product) => {
+        // Hide slideshow arrows if there is only one image...
+        const imageCount = document.querySelectorAll('.product-image img').length;
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+
+        if (imageCount < 2) {
+            nextButton.classList.add("hide");
+            prevButton.classList.add("hide");
+        }
+        else {
+            nextButton.classList.remove("hide");
+            prevButton.classList.remove("hide");
+        }
+    });
 }
 
 async function loadProductData() {
@@ -33,8 +47,27 @@ async function loadProductData() {
             productImage.innerHTML = "";
             for (const image of product.image) {
                 const imgElement = document.createElement("img");
+                const imgElementFull = document.createElement("img");
+                const imgViewer = document.createElement('dialog');
+                const imgViewerClose = document.createElement('button');
+                imgViewer.classList.add('dialog-style');
+                imgViewerClose.innerHTML = '&#10006;';
+                imgViewerClose.classList.add('close-viewer-style');
                 imgElement.src = image;
+                imgElementFull.src = image;
+                imgElementFull.classList.add('full-image-style');
+
                 productImage.appendChild(imgElement);
+                imgViewer.append(imgViewerClose, imgElementFull);
+                document.body.appendChild(imgViewer);
+
+                imgElement.addEventListener('click', (event) => {
+                    imgViewer.showModal();
+                });
+
+                imgViewerClose.addEventListener('click', (event) => {
+                    imgViewer.close();
+                })
             }
 
             return product;

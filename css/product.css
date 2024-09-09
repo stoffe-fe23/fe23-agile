@@ -29,7 +29,7 @@
 }
 
 .product-image > img {
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     object-fit: cover;
 }
@@ -98,6 +98,25 @@
     flex-grow: 1;
 }
 
+::backdrop {
+    background-color: rgb(211, 210, 210);
+    opacity: 0.8;
+}
+
+.dialog-style {
+    border: none;
+    min-width: 370px;
+    width: fit-content;
+}
+
+.close-viewer-style {
+    right: 16px;
+    top: 34px;
+}
+
+.full-image-style {
+    max-width: 100%;
+}
 
 
 @media all and (min-width: 680px) {
@@ -106,5 +125,9 @@
         grid-template-areas: "product-image product-desc product-actions";
         grid-template-columns: auto 3fr 1fr;
         gap: 4rem;
+    }
+
+    .full-image-style {
+        max-width: 100%;
     }
 }
