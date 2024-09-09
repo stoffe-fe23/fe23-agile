@@ -5,12 +5,14 @@ let debounceTimer = null;
 const productSearchForm = document.querySelector("#product-search-form");
 const searchTextField = document.querySelector("#product-search-text");
 
+// Prevent the page from reloading if the form is submitted.
 if (productSearchForm) {
     productSearchForm.addEventListener("submit", (event) => {
         event.preventDefault();
     });
 }
 
+// Perform search after 0.5 sec of no user input.
 if (searchTextField) {
     searchTextField.addEventListener("input", (event) => {
         clearTimeout(debounceTimer);
@@ -19,6 +21,7 @@ if (searchTextField) {
 
 }
 
+// Update search results as the user is typing
 async function searchWhileTyping() {
     const resultsBox = document.querySelector("#product-search-result");
 
@@ -39,6 +42,7 @@ async function searchWhileTyping() {
     }
 }
 
+// Build and return a product card for the specified product object.
 function createProductCard(product) {
     const template = document.querySelector("#product-search-result-template");
     const card = template.content.firstElementChild.cloneNode(true);
