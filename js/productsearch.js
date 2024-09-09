@@ -2,7 +2,15 @@ import * as productdata from "./productdata.js";
 
 let debounceTimer = null;
 
+const productSearchForm = document.querySelector("#product-search-form");
 const searchTextField = document.querySelector("#product-search-text");
+
+if (productSearchForm) {
+    productSearchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+    });
+}
+
 if (searchTextField) {
     searchTextField.addEventListener("input", (event) => {
         clearTimeout(debounceTimer);
