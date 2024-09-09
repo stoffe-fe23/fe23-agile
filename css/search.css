@@ -1,0 +1,31 @@
+:root {
+    --search-product-card-background-color: rgba(0, 0, 0, 1.0);
+    --search-product-card-foreground-color: rgba(255, 255, 255, 1.0);
+    --search-product-card-noresult-color: rgb(193, 0, 0);
+}
+
+#product-search-result {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.search-product-card {
+    background-color: var(--search-product-card-background-color);
+    color: var(--search-product-card-foreground-color);
+    padding: 1rem;
+}
+
+.search-product-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.search-product-desc {
+    font-size: 0.9rem;
+}
+
+.search-product-noresult {
+    font-weight: 700;
+    color: var(--search-product-card-noresult-color);
+}

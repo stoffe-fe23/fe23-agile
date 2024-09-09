@@ -230,3 +230,10 @@ export async function getProduct(productId) {
     const products = await getProducts();
     return products.find((product) => product.productid == productId);
 }
+
+
+// Get products where the name or description contains the specified string. 
+export async function searchProducts(searchFor) {
+    const products = await getProducts();
+    return products.filter((product) => product.name.toLowerCase().includes(searchFor) || product.description.toLowerCase().includes(searchFor));
+}
