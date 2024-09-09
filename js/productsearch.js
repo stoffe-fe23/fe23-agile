@@ -17,17 +17,11 @@ if (searchForm) {
                 for (const product of searchResult) {
                     // Create a new product card for this product
                     const card = template.content.firstElementChild.cloneNode(true);
-                    const name = card.querySelector(".search-product-name");
-                    const desc = card.querySelector(".search-product-desc");
-                    const link = card.querySelector(".search-product-link");
-                    const image = card.querySelector(".search-product-image");
-
-                    // Fill in product data on the card elements.
-                    name.innerText = product.name;
-                    desc.innerText = product.description;
+                    card.querySelector(".search-product-name").innerText = product.name;;
+                    card.querySelector(".search-product-desc").innerText = product.description;
+                    card.querySelector(".search-product-link").href = `productinfo.html?product=${product.productid}`;
+                    card.querySelector(".search-product-image").src = product.image[0];
                     card.setAttribute("data-productid", product.productid);
-                    link.href = `productinfo.html?product=${product.productid}`;
-                    image.src = product.image[0];
 
                     // Add product card to search results. 
                     resultsBox.appendChild(card);

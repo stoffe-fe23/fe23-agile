@@ -2,6 +2,8 @@
     --search-product-card-background-color: rgb(52, 52, 52);
     --search-product-card-foreground-color: rgba(255, 255, 255, 1.0);
     --search-product-card-noresult-color: rgb(193, 0, 0);
+    --search-product-card-link-color: orange;
+    --search-product-card-link-hover-color: yellow;
 }
 
 #product-search-form {
@@ -33,6 +35,16 @@
 
 .search-product-desc {
     font-size: 0.9rem;
+}
+
+.search-product-link {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--search-product-card-link-color);
+}
+
+.search-product-link:hover {
+    color: var(--search-product-card-link-hover-color);
 }
 
 .search-product-noresult {

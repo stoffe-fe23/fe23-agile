@@ -190,7 +190,8 @@ export async function getCategories(filterGroup = null) {
     return categories;
 }
 
-// Retrieve array of all products (both default and admin-added). If filterCategory is set, only products belonging to that category is included.
+// Retrieve array of all products (both default and admin-added). 
+// If filterCategory is set, only products belonging to that category is included.
 export async function getProducts(filterCategory = null) {
     const newProducts = await database.getProducts();
 
