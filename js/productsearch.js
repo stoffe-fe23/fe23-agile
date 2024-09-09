@@ -19,10 +19,14 @@ if (searchForm) {
                     const name = card.querySelector(".search-product-name");
                     const desc = card.querySelector(".search-product-desc");
                     const link = card.querySelector(".search-product-link");
+                    const image = card.querySelector(".search-product-image");
+
                     name.innerText = product.name;
                     desc.innerText = product.description;
                     card.setAttribute("data-productid", product.productid);
                     link.href = `productinfo.html?product=${product.productid}`;
+                    image.src = product.image[0];
+
                     resultsBox.appendChild(card);
                 }
             }

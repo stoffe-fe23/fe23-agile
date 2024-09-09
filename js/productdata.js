@@ -235,5 +235,6 @@ export async function getProduct(productId) {
 // Get products where the name or description contains the specified string. 
 export async function searchProducts(searchFor) {
     const products = await getProducts();
-    return products.filter((product) => product.name.toLowerCase().includes(searchFor) || product.description.toLowerCase().includes(searchFor));
+    const searchText = searchFor.toLowerCase();
+    return products.filter((product) => product.name.toLowerCase().includes(searchText) || product.description.toLowerCase().includes(searchText));
 }
