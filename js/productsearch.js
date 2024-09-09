@@ -2,34 +2,6 @@ import * as productdata from "./productdata.js";
 
 let debounceTimer = null;
 
-/*
-const searchForm = document.querySelector("#product-search-form");
-if (searchForm) {
-    searchForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(event.target);
-        const searchFor = formData.get("search-text");
-        if (searchFor && searchFor.length) {
-            const resultsBox = document.querySelector("#product-search-result");
-            const searchResult = await productdata.searchProducts(searchFor);
-
-            resultsBox.innerHTML = "";
-            if (searchResult.length) {
-                for (const product of searchResult) {
-                    resultsBox.appendChild(createProductCard(product));
-                }
-            }
-            else {
-                console.log("no result!");
-                resultsBox.innerHTML = `<div class="search-product-noresult">Inga produkter matchar din sökining.</div>`;
-            }
-        }
-
-    });
-}
-    */
-
 const searchTextField = document.querySelector("#product-search-text");
 if (searchTextField) {
     searchTextField.addEventListener("input", (event) => {
@@ -40,13 +12,12 @@ if (searchTextField) {
 }
 
 async function searchWhileTyping() {
-    const searchFor = searchTextField.value;
-
     const resultsBox = document.querySelector("#product-search-result");
-    resultsBox.innerHTML = "";
-    if (searchFor.length) {
-        const searchResult = await productdata.searchProducts(searchFor);
 
+    resultsBox.innerHTML = "";
+
+    if (searchTextField.value.length) {
+        const searchResult = await productdata.searchProducts(searchTextField.value);
 
         if (searchResult.length) {
             for (const product of searchResult) {
