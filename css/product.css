@@ -2,132 +2,143 @@
     CSS for product information page.
 */
 :root {
-    --productactions-background-color: rgba(90, 90, 90, 0.5);
-    --productactions-text-color: rgba(255, 255, 255, 0.9);
-    --productactions-heading-color: lightblue;
-    --product-buy-background-color: green;
-    --product-buy-text-color: white;
-    --product-buy-background-hover-color: lightgreen;
+  --productactions-background-color: rgba(90, 90, 90, 0.5);
+  --productactions-text-color: rgba(255, 255, 255, 0.9);
+  --productactions-heading-color: lightblue;
+  --product-buy-background-color: green;
+  --product-buy-text-color: white;
+  --product-buy-background-hover-color: lightgreen;
 }
 
 .productinfo-page h2 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .product-info {
-    display: grid;
-    grid-template-areas: "product-image" "product-desc" "product-actions";
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  display: grid;
+  grid-template-areas: "product-image" "product-desc" "product-actions";
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .product-image {
-    grid-area: product-image;
-    width: 300px;
+  grid-area: product-image;
+  width: 300px;
 }
 
 .product-image > img {
-    /* width: 100%; */
-    height: auto;
-    object-fit: cover;
+  /* width: 100%; */
+  height: auto;
+  object-fit: cover;
 }
 
 .product-desc {
-    grid-area: product-desc;
+  grid-area: product-desc;
 }
 
 .product-desc p:first-of-type {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .product-actions {
-    grid-area: product-actions;
-    background-color: var(--productactions-background-color);
-    color: var(--productactions-text-color);
-    padding: 1rem 2rem 1.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  grid-area: product-actions;
+  background-color: var(--productactions-background-color);
+  color: var(--productactions-text-color);
+  padding: 1rem 2rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .product-actions h3 {
-    text-align: right;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 1rem 0 0 0;
-    color: var(--productactions-heading-color);
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1rem 0 0 0;
+  color: var(--productactions-heading-color);
 }
 
 .product-price {
-    font-size: 3rem;
-    text-align: right;
+  font-size: 3rem;
+  text-align: right;
 }
 
 .product-price::after {
-    content: " kr";
+  content: " kr";
 }
 
 .product-stock {
-    text-align: right;
+  text-align: right;
 }
 
 .product-buy {
-    margin-top: 1rem;
-    padding: 1rem 2rem;
-    border-radius: 15px;
-    background-color: var(--product-buy-background-color);
-    color: var(--product-buy-text-color);
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  background-color: var(--product-buy-background-color);
+  color: var(--product-buy-text-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .product-buy:hover {
-    background-color: var(--product-buy-background-hover-color);
+  background-color: var(--product-buy-background-hover-color);
+}
+.product-wishlist {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  background-color: var(--productactions-heading-color);
+  color: var(--product-buy-text-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
+.product-wishlist:hover {
+  background-color: var(--product-buy-background-hover-color);
+}
 
 .product-rating .rated {
-    color: gold;
+  color: gold;
 }
 
-
 .product-otherinfo {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 ::backdrop {
-    background-color: rgb(211, 210, 210);
-    opacity: 0.8;
+  background-color: rgb(211, 210, 210);
+  opacity: 0.8;
 }
 
 .dialog-style {
-    border: none;
-    min-width: 370px;
-    width: fit-content;
+  border: none;
+  min-width: 370px;
+  width: fit-content;
 }
 
 .close-viewer-style {
-    right: 16px;
-    top: 34px;
+  right: 16px;
+  top: 34px;
 }
 
 .full-image-style {
-    max-width: 100%;
+  max-width: 100%;
 }
 
-
 @media all and (min-width: 680px) {
-    .product-info {
-        display: grid;
-        grid-template-areas: "product-image product-desc product-actions";
-        grid-template-columns: auto 3fr 1fr;
-        gap: 4rem;
-    }
+  .product-info {
+    display: grid;
+    grid-template-areas: "product-image product-desc product-actions";
+    grid-template-columns: auto 3fr 1fr;
+    gap: 4rem;
+  }
 
-    .full-image-style {
-        max-width: 100%;
-    }
+  .full-image-style {
+    max-width: 100%;
+  }
 }
