@@ -518,7 +518,7 @@ main section {
 }
 
 
-@media all and (min-width: 680px) {
+@media all and (min-width: 890px) {
 
     body > header nav ul {
         display: flex;
