@@ -12,6 +12,10 @@
     margin: 1rem 4rem 1rem 0;
 }
 
+#product-search-form.product-search-form-page {
+    text-align: center;
+}
+
 #product-search-result {
     background-color: var(--search-product-card-background-color);
     width: 100%;
