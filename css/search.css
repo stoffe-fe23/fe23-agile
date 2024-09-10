@@ -6,6 +6,8 @@
     --search-product-card-link-hover-color: yellow;
     --search-box-border-color: rgba(0, 0, 0, 0.5);
     --search-box-background-color: rgba(255, 255, 255, 0.7);
+    --search-result-close-button-color: darkred;
+    --search-result-close-button-hover-color: orange;
 }
 
 #product-search-form {
@@ -44,8 +46,8 @@
     outline: 0;
 }
 
-.search-container{
-    background-color:var(--search-product-card-background-color);
+.search-container {
+    background-color: var(--search-product-card-background-color);
     display: none;
     width: 100%;
     z-index: 1;
@@ -54,17 +56,42 @@
     position: absolute;
 }
 
-.search-close-button-container{
+.search-close-button-container {
     width: 100%;
     display: none;
     justify-content: flex-end;
 }
 
-.search-close-button{
+.search-close-button {
     z-index: 2;
     position: absolute;
     margin-right: 20px;
     margin-top: 20px;
+    background-color: var(--search-result-close-button-color);
+    border: 0;
+    padding: 0.2rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-close-button:hover {
+    background-color: var(--search-result-close-button-hover-color);
+}
+
+.search-close-button img {
+    width: 20px;
+    height: 20px;
+    filter: invert(100%);
+
+}
+
+.search-close-button:hover img {
+    filter: invert(0%);
 }
 
 .search-product-card {
