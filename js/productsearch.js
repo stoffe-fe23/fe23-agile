@@ -34,6 +34,9 @@ async function searchWhileTyping() {
     closeButton.style.display = "none";
     searchContainer.style.display = "none";
 
+    if (pageContent)
+        pageContent.style.display = "";
+
     if (searchTextField.value.length) {
         const searchResult = await productdata.searchProducts(searchTextField.value);
 
@@ -45,6 +48,10 @@ async function searchWhileTyping() {
             pageContent.style.display = "none";
             closeButton.style.display = "flex";
             searchContainer.style.display = "block";
+
+            if (pageContent)
+                pageContent.style.display = "none";
+
         }
         else {
             console.log("no result!");

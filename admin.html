@@ -2,10 +2,10 @@
 <html lang="en">
     <!-- Admin control panel page for adding new categories and products -->
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/stylesubpage.css">
-        <link rel="stylesheet" href="css/admin.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/stylesubpage.css" />
+        <link rel="stylesheet" href="css/admin.css" />
         <script src="js/admin.js" type="module"></script>
         <title>Admin kontrollpanel</title>
     </head>
@@ -14,7 +14,7 @@
         <header>
             <nav>
                 <div class="logo">
-                    <h1><a href="index.html">LOGO</a></h1>
+                    <h1><a href="index.html">Skate or die</a></h1>
                 </div>
                 <div class="main-menu">
                     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -24,6 +24,7 @@
                         <li><a href="categorylist.html?group=skate">Skate</a></li>
                         <li><a href="categorylist.html?group=misc">Blandat</a></li>
                         <li><a href="productcart.html">Varukorg</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
                     </ul>
                 </div>
             </nav>
@@ -45,16 +46,27 @@
                     </div>
                     <div>
                         <label for="create-category-name">Kategorinamn</label>
-                        <input type="text" id="create-category-name" name="category-name" minlength="4" maxlength="20" required>
+                        <input
+                            type="text"
+                            id="create-category-name"
+                            name="category-name"
+                            minlength="4"
+                            maxlength="20"
+                            required />
                     </div>
                     <div>
                         <label for="create-category-image">Kategoribild</label>
-                        <input type="file" accept="image/*" id="create-category-image" name="category-image" required>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            id="create-category-image"
+                            name="category-image"
+                            required />
                     </div>
                     <button>Skapa</button>
                 </form>
             </section>
-            <hr>
+            <hr />
             <!-- FORM: CREATE NEW PRODUCT -->
             <section>
                 <h2>Skapa produkt</h2>
@@ -62,23 +74,48 @@
                     <div id="product-preview"></div>
                     <div>
                         <label for="create-product-name">Produktnamn</label>
-                        <input id="create-product-name" name="product-name" type="text" minlength="4" maxlength="50" required>
+                        <input
+                            id="create-product-name"
+                            name="product-name"
+                            type="text"
+                            minlength="4"
+                            maxlength="50"
+                            required />
                     </div>
                     <div>
                         <label for="create-product-price">Pris</label>
-                        <input id="create-product-price" name="product-price" type="number" min="0" value="0" required>
+                        <input
+                            id="create-product-price"
+                            name="product-price"
+                            type="number"
+                            min="0"
+                            value="0"
+                            required />
                     </div>
                     <div>
                         <label for="create-product-desc">Produktbeskrivning</label>
-                        <textarea id="create-product-desc" name="product-desc" rows="5" cols="60"></textarea>
+                        <textarea
+                            id="create-product-desc"
+                            name="product-desc"
+                            rows="5"
+                            cols="60"></textarea>
                     </div>
                     <div>
                         <label for="create-product-image">Produktbild</label>
-                        <input type="file" accept="image/*" id="create-product-image" name="product-image" multiple required>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            id="create-product-image"
+                            name="product-image"
+                            multiple
+                            required />
                     </div>
                     <div>
                         <label for="create-product-category">Kategori</label>
-                        <select id="create-product-category" name="product-category" required></select>
+                        <select
+                            id="create-product-category"
+                            name="product-category"
+                            required></select>
                     </div>
                     <button>Skapa</button>
                 </form>
@@ -86,10 +123,11 @@
         </main>
         <!-- Page footer -->
         <footer>
-            SIDFOT
             <div class="footer-links"><a href="admin.html">Admin</a></div>
             <div class="footer-links"><a href="contact.html">Kontakt</a></div>
-            <div class="footer-links"><a href="productsearch.html">Sök produkt</a></div>
+            <div class="footer-links">
+                <a href="productsearch.html">Sök produkt</a>
+            </div>
         </footer>
     </body>
 </html>

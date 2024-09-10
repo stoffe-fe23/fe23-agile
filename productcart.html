@@ -2,10 +2,10 @@
 <html lang="en">
     <!-- Page listing all products the user has placed in their shopping cart -->
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/stylesubpage.css">
-        <link rel="stylesheet" href="css/productcart.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/stylesubpage.css" />
+        <link rel="stylesheet" href="css/productcart.css" />
         <script src="js/productcart.js" type="module"></script>
         <title>Sida varukorg</title>
     </head>
@@ -14,7 +14,7 @@
         <header>
             <nav>
                 <div class="logo">
-                    <h1><a href="index.html">LOGO</a></h1>
+                    <h1><a href="index.html">Skate or die</a></h1>
                 </div>
                 <div class="main-menu">
                     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -24,6 +24,7 @@
                         <li><a href="categorylist.html?group=skate">Skate</a></li>
                         <li><a href="categorylist.html?group=misc">Blandat</a></li>
                         <li><a href="productcart.html">Varukorg</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
                     </ul>
                 </div>
             </nav>
@@ -45,23 +46,40 @@
         </main>
         <template id="product-card-template">
             <article>
-                <img src="images/image-placeholder.jpg" alt="placeholder image">
+                <img src="images/image-placeholder.jpg" alt="placeholder image" />
                 <h3>Produkt 1</h3>
-                <div class="product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolores, velit itaque beatae incidunt commodi facilis earum similique nobis non veritatis voluptate quis odit, placeat, nemo ratione fugit corrupti nam ipsam iste laborum quaerat.</div>
-                <div class="product-cart-remove"><button type="button">Ta bort</button></div>
-                <div class="product-price"><span>à pris: </span><span>10 000 kr</span></div>
+                <div class="product-desc">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+                    dolores, velit itaque beatae incidunt commodi facilis earum similique
+                    nobis non veritatis voluptate quis odit, placeat, nemo ratione fugit
+                    corrupti nam ipsam iste laborum quaerat.
+                </div>
+                <div class="product-cart-remove">
+                    <button type="button">Ta bort</button>
+                </div>
+                <div class="product-price">
+                    <span>à pris: </span><span>10 000 kr</span>
+                </div>
                 <div class="product-amount">
                     <label for="product-amount-1">Antal:</label>
-                    <input id="product-amount-1" name="product-amount-1" data-productid="12345" type="number" min="1" max="100" value="1" />
+                    <input
+                        id="product-amount-1"
+                        name="product-amount-1"
+                        data-productid="12345"
+                        type="number"
+                        min="1"
+                        max="100"
+                        value="1" />
                 </div>
             </article>
         </template>
         <!-- Page footer -->
         <footer>
-            SIDFOT
             <div class="footer-links"><a href="admin.html">Admin</a></div>
             <div class="footer-links"><a href="contact.html">Kontakt</a></div>
-            <div class="footer-links"><a href="productsearch.html">Sök produkt</a></div>
+            <div class="footer-links">
+                <a href="productsearch.html">Sök produkt</a>
+            </div>
         </footer>
     </body>
 </html>
