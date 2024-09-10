@@ -25,10 +25,14 @@ if (searchTextField) {
 async function searchWhileTyping() {
     const resultsBox = document.querySelector("#product-search-result");
     const pageContent = document.querySelector("#main-content");
+    const closeButton = document.querySelector("#search-close-button");
+    const searchContainer = document.querySelector("#search-container");
 
     resultsBox.innerHTML = "";
 
-    pageContent.style.display = ""; 
+    pageContent.style.display = "";
+    closeButton.style.display = "none";
+    searchContainer.style.display = "none";
 
     if (searchTextField.value.length) {
         const searchResult = await productdata.searchProducts(searchTextField.value);
@@ -38,13 +42,22 @@ async function searchWhileTyping() {
                 resultsBox.appendChild(createProductCard(product));
             }
 
-            pageContent.style.display = "none"; 
+            pageContent.style.display = "none";
+            closeButton.style.display = "flex";
+            searchContainer.style.display = "block";
         }
         else {
             console.log("no result!");
             resultsBox.innerHTML = `<div class="search-product-noresult">Inga produkter matchar din sökining.</div>`;
         }
     }
+
+    closeButton.addEventListener("click", (event) =>{
+        resultsBox.innerHTML = "";
+        closeButton.style.display = "none";
+        pageContent.style.display = "";
+        searchContainer.style.display = "none";
+    })
 }
 
 // Build and return a product card for the specified product object.
