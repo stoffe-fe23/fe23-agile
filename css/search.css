@@ -26,6 +26,11 @@
     opacity: 0.95;
 }
 
+#product-search-result.product-search-result-page {
+    position: relative;
+    top: 0;
+}
+
 #product-search-text {
     padding: 0.5rem 1rem;
     border-radius: 12px;
