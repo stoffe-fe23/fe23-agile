@@ -28,7 +28,8 @@ async function searchWhileTyping() {
 
     resultsBox.innerHTML = "";
 
-    pageContent.style.display = ""; 
+    if (pageContent)
+        pageContent.style.display = "";
 
     if (searchTextField.value.length) {
         const searchResult = await productdata.searchProducts(searchTextField.value);
@@ -38,7 +39,8 @@ async function searchWhileTyping() {
                 resultsBox.appendChild(createProductCard(product));
             }
 
-            pageContent.style.display = "none"; 
+            if (pageContent)
+                pageContent.style.display = "none";
         }
         else {
             console.log("no result!");
