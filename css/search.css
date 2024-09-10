@@ -21,8 +21,9 @@
     flex-wrap: wrap;
     row-gap: 50px;
     z-index: 1;
-    top: 100px;
+    top: 70px;
     position: absolute;
+    opacity: 0.95;
 }
 
 #product-search-text {
@@ -31,6 +32,7 @@
     border: 1px solid var(--search-box-border-color);
     background-color: var(--search-box-background-color);
     width: 30ch;
+    outline: 0;
 }
 
 .search-product-card {
