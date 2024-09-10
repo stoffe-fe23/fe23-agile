@@ -24,8 +24,11 @@ if (searchTextField) {
 // Update search results as the user is typing
 async function searchWhileTyping() {
     const resultsBox = document.querySelector("#product-search-result");
+    const pageContent = document.querySelector("#main-content");
 
     resultsBox.innerHTML = "";
+
+    pageContent.style.display = ""; 
 
     if (searchTextField.value.length) {
         const searchResult = await productdata.searchProducts(searchTextField.value);
@@ -34,6 +37,8 @@ async function searchWhileTyping() {
             for (const product of searchResult) {
                 resultsBox.appendChild(createProductCard(product));
             }
+
+            pageContent.style.display = "none"; 
         }
         else {
             console.log("no result!");

@@ -11,15 +11,23 @@
 }
 
 #product-search-result {
+    background-color:var(--search-product-card-background-color);
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 50px;
+    z-index: 1;
+    top: 100px;
+    position: absolute;
 }
 
 .search-product-card {
     background-color: var(--search-product-card-background-color);
     color: var(--search-product-card-foreground-color);
     padding: 1rem;
+    width: 500px;
 }
 
 .search-product-image {
