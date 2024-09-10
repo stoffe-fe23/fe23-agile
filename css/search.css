@@ -4,14 +4,16 @@
     --search-product-card-noresult-color: rgb(193, 0, 0);
     --search-product-card-link-color: orange;
     --search-product-card-link-hover-color: yellow;
+    --search-box-border-color: rgba(0, 0, 0, 0.5);
+    --search-box-background-color: rgba(255, 255, 255, 0.7);
 }
 
 #product-search-form {
-    margin: 1rem 0;
+    margin: 1rem 4rem 1rem 0;
 }
 
 #product-search-result {
-    background-color:var(--search-product-card-background-color);
+    background-color: var(--search-product-card-background-color);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -21,6 +23,14 @@
     z-index: 1;
     top: 100px;
     position: absolute;
+}
+
+#product-search-text {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--search-box-border-color);
+    background-color: var(--search-box-background-color);
+    width: 30ch;
 }
 
 .search-product-card {

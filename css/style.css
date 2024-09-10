@@ -60,7 +60,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     margin: 0px;
-    min-width: 320px;
+    min-width: 390px;
     min-height: 100vh;
     /* background-color: var(--page-background-color); */
     color: var(--page-text-color);
@@ -92,6 +92,7 @@ body > footer {
     justify-content: center;
     align-items: center;
     padding: 2rem 3rem;
+    flex-wrap: wrap;
 }
 
 .footer-links {
@@ -117,13 +118,16 @@ body > header nav {
     left: 0px;
     right: 0px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     justify-items: center;
     color: var(--nav-text-color);
     background-color: transparent;
     width: 100%;
+    gap: 1rem;
 }
+
+body > header nav .searchbox {}
 
 body > header nav .logo {
     padding: 1rem 2rem;
@@ -141,12 +145,20 @@ body > header nav .logo a {
     text-decoration: none;
 }
 
+.main-menu-wrapper {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
 body > header nav .main-menu {
+    position: relative;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
     background-color: var(--nav-background-color);
+    z-index: 3;
 }
 
 body.subpage > header nav .main-menu {
@@ -215,6 +227,7 @@ body > header .hero p {
 #nav-toggle {
     position: absolute;
     left: -100px !important;
+    visibility: hidden;
 }
 
 #nav-button {
@@ -330,7 +343,7 @@ main section {
 
 }
 
-.latest-products-header{
+.latest-products-header {
     color: black;
 }
 
@@ -374,16 +387,16 @@ main section {
     text-align: center;
 }
 
-.latest-product-info{
+.latest-product-info {
     margin-top: 20px;
     text-align: center;
 }
 
-.mouseover:hover{
+.mouseover:hover {
     opacity: 0.8;
 }
 
-.latest-product-link:hover{
+.latest-product-link:hover {
     opacity: 0.8;
 }
 
