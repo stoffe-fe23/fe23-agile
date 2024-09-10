@@ -222,6 +222,26 @@ export async function getCategories() {
   });
 }
 
+// Get list of admin-added wishlist from IndexedDB
+export async function getWishlist() {
+  await initializeDB();
+  return new Promise((resolve, reject) => {
+    if (db) {
+      const dbReq = db.transaction("wishlist").objectStore("wishlist").getAll();
+
+      dbReq.addEventListener("success", (event) => {
+        console.log("Fetched wishlist list...");
+        resolve(event.target.result);
+      });
+
+      dbReq.addEventListener("error", (event) => {
+        console.log("Error fetching wishlist!", event);
+        reject(event);
+      });
+    }
+  });
+}
+
 // Get list of admin-added products from IndexedDB.
 export async function getProducts() {
   await initializeDB();

@@ -93,10 +93,16 @@ const wishlistButton = document.querySelector(".product-wishlist");
 wishlistButton.addEventListener("click", async (event) => {
   try {
     const product = await loadProductData();
-    if (product) {
+    const checkWishlist = await db.getWishlist();
+    const wishlistIdArray = checkWishlist.map((product) => product.productid);
+    if (!wishlistIdArray.includes(product.productid)) {
       db.addToWishlist(product.productid);
-      console.log("added to cart");
-    } else console.log("Error adding product data");
+      console.log("added to wishlist");
+      alert("Product added to wishlist");
+    } else {
+      console.log("Error adding product data");
+      alert("Product already in wishlist");
+    }
   } catch (error) {
     console.log("Error loading product data", error);
   }
