@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/stylesubpage.css" />
     <link rel="stylesheet" href="css/products.css" />
     <script src="js/wishlist.js" type="module"></script>
-    <title>Wishlist</title>
+    <title>Önskelista</title>
   </head>
   <body class="subpage">
     <!-- Page header with logo and nav menu -->
@@ -18,13 +18,15 @@
         </div>
         <div class="main-menu">
           <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-          <label for="nav-toggle" id="nav-button" tabindex="0"><span>Menu</span></label>
+          <label for="nav-toggle" id="nav-button" tabindex="0"
+            ><span>Menu</span></label
+          >
           <ul>
             <li><a href="categorylist.html?group=clothes">Kläder</a></li>
             <li><a href="categorylist.html?group=skate">Skate</a></li>
             <li><a href="categorylist.html?group=misc">Blandat</a></li>
             <li><a href="productcart.html">Varukorg</a></li>
-            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="wishlist.html">Önskelista</a></li>
           </ul>
         </div>
       </nav>
@@ -32,7 +34,7 @@
     <!-- Main content section -->
     <main>
       <section>
-        <h2>Wishlist</h2>
+        <h2>Din Önskelista</h2>
         <div class="product-list">
           <div class="no-products">
             Det finns inga produkter i denna kategori ännu.
@@ -42,7 +44,9 @@
     </main>
     <template id="product-card-template">
       <article class="product-list-card">
-        <a href="productinfo.html" class="product-link-image"><img src="images/image-placeholder.jpg" alt="placeholder image" /></a>
+        <a href="productinfo.html" class="product-link-image"
+          ><img src="images/image-placeholder.jpg" alt="placeholder image"
+        /></a>
         <h3>Produkt</h3>
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
